@@ -1,23 +1,78 @@
-//const url="https://striveschool-api.herokuapp.com/api/deezer/search?q="
+
+
+let albumArray=[]
 
 
 
-const renderAlbums=(arrayOfAlbums)=>{
-let rawNode=document.getElementById('recentlyplayed')
-for(let i=0;1<=8;i++){
-    rawNode.innerHTML="hello"
-//     rawNode.innerHTML+=`<div class="card" >
-//     <img src="" class="card-img-top" alt="...">
-//     <div class="card-body">
-//       <h5 class="card-title">Card title</h5>
-//       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-//       <a href="#" class="btn btn-primary">Go somewhere</a>
-//     </div>
-//   </div>`
+const recentlyPlayed=(array)=>{
+    let rowNode=document.getElementById('recentlyplayed')
+    let arr=array.slice(0,5)
+
+    arr.forEach(element => {
+        rowNode.innerHTML+=`<div class="col mb-2 mb-md-1">
+        <div class="card" style="position:relative">
+           <img src="${element.album.cover_medium}" class="card-img-top mt-2 mb-2 px-2" alt="...">
+           <div class="play-btn">
+              <div class="triangle"></div>
+          </div>
+           <div class="card-body" >
+              <h5 class="card-title">${element.title}</h5>
+              
+          
+            </div>
+          </div>
+          </div>`
+    });
+    
+
+        
+   
+    }
+
+
+const goodMorning=(array)=>{
+    let rowNode=document.getElementById("goodmorning")
+    let arr=array.slice(5,15)
+    arr.forEach(element => {
+        rowNode.innerHTML+=     `<div class="col">
+        <div class="media mb-3" style="position:relative">
+  <img src="${element.album.cover_small}"  alt="...">
+  <div class="play-btn-media">
+  <div class="triangle-media"></div>
+</div>
+  <div class="media-body ">
+    <h5 class="mt-3 mb-3 ml-1">${element.title}</h5>
+    
+    
+  </div>
+</div>
+        </div>`
+
+        
+    });
+   
 }
-
+const showstoTry=(array)=>{
+    let rowNode=document.getElementById("showstotry")
+    let arr=array.slice(15,20)
+    arr.forEach(element => {
+        rowNode.innerHTML+=`<div class="col mb-2 mb-md-1">
+        <div class="card" style="position:relative" >
+           <img src="${element.album.cover_medium}" class="card-img-top mt-2 mb-2 px-2" alt="...">
+           <div class="play-btn">
+              <div class="triangle"></div>
+            </div>
+           <div class="card-body" >
+              <h5 class="card-title">${element.title}</h5>
+               
+              
+          </div>
+          
+          </div>`
+    });
+    
 }
-const fetchSongs=()=>{
+const fetchSongs=(search)=>{
 
 
     const options = {
@@ -30,16 +85,45 @@ const fetchSongs=()=>{
 
     
 
-    fetch('https://striveschool-api.herokuapp.com/api/deezer/album/75621062',options)
+    fetch('https://striveschool-api.herokuapp.com/api/deezer/search?q='+search,options)
 	.then(response => response.json())
 	.then((jsonResponse) => {
-        console.log(jsonResponse)
-        renderAlbums()
-        
+        const {data}=jsonResponse
+        albumArray=data
+        console.log(data)
+        recentlyPlayed(data)
+        goodMorning(data)
+        showstoTry(data)
+        albumPage(data)
     }
     )
 	.catch(err => console.error(err));
 }
 
 
-fetchSongs()
+fetchSongs("eminem")
+
+
+// https://striveschool-api.herokuapp.com/api/deezer/album/{id}
+
+
+const albumPage=(array)=>{
+    let cards=document.querySelectorAll(".card")
+   
+    cards.forEach(card => {
+        card.addEventListener("click",(event)=>{
+            let val=event.target
+            console.log(val)
+            // window.location.href="album.html"
+            console.log(albumArray)
+
+            let findAlbumId = albumArray.find((albumItem) =>
+            albumItem.album.cover_medium===val
+           
+          )
+          console.log(findAlbumId)
+        })
+      
+    });
+    
+}

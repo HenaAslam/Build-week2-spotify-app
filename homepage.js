@@ -7,9 +7,11 @@ let albumArray=[]
 const recentlyPlayed=(array)=>{
     let rowNode=document.getElementById('recentlyplayed')
     let arr=array.slice(0,5)
+    
 
     arr.forEach(element => {
-        rowNode.innerHTML+=`<div class="col mb-2 mb-md-1">
+        rowNode.innerHTML+=`<a href='./album.html?id=${element.album.id}'
+        <div class="col mb-2 mb-md-1">
         <div class="card" style="position:relative">
            <img src="${element.album.cover_medium}" class="card-img-top mt-2 mb-2 px-2" alt="...">
            <div class="play-btn">
@@ -21,7 +23,8 @@ const recentlyPlayed=(array)=>{
           
             </div>
           </div>
-          </div>`
+          </div>
+          </a>`
     });
     
 
@@ -34,7 +37,8 @@ const goodMorning=(array)=>{
     let rowNode=document.getElementById("goodmorning")
     let arr=array.slice(5,15)
     arr.forEach(element => {
-        rowNode.innerHTML+=     `<div class="col">
+        rowNode.innerHTML+=     `<a href='./album.html?id=${element.album.id}'
+        <div class="col">
         <div class="media mb-3" style="position:relative">
   <img src="${element.album.cover_small}"  alt="...">
   <div class="play-btn-media">
@@ -46,17 +50,20 @@ const goodMorning=(array)=>{
     
   </div>
 </div>
-        </div>`
+        </div>
+        </a>`
 
         
     });
    
 }
+
 const showstoTry=(array)=>{
     let rowNode=document.getElementById("showstotry")
     let arr=array.slice(15,20)
     arr.forEach(element => {
-        rowNode.innerHTML+=`<div class="col mb-2 mb-md-1">
+        rowNode.innerHTML+=`<a href='./album.html?id=${element.album.id}'
+        <div class="col mb-2 mb-md-1">
         <div class="card" style="position:relative" >
            <img src="${element.album.cover_medium}" class="card-img-top mt-2 mb-2 px-2" alt="...">
            <div class="play-btn">
@@ -68,7 +75,8 @@ const showstoTry=(array)=>{
               
           </div>
           
-          </div>`
+          </div>
+          </a>`
     });
     
 }
@@ -94,36 +102,35 @@ const fetchSongs=(search)=>{
         recentlyPlayed(data)
         goodMorning(data)
         showstoTry(data)
-        albumPage(data)
+       // albumPage(data)
     }
     )
 	.catch(err => console.error(err));
 }
 
 
-fetchSongs("eminem")
+fetchSongs("queen")
 
 
-// https://striveschool-api.herokuapp.com/api/deezer/album/{id}
 
 
-const albumPage=(array)=>{
-    let cards=document.querySelectorAll(".card")
+//dont need this anymore
+// const albumPage=(array)=>{
+//     let cards=document.querySelectorAll(".card")
    
-    cards.forEach(card => {
-        card.addEventListener("click",(event)=>{
-            let val=event.target
-            console.log(val)
-            // window.location.href="album.html"
-            console.log(albumArray)
+//     cards.forEach(card => {
+//         card.addEventListener("click",(event)=>{
+//             let val=event.target
+          
+//             let src=val.src
 
-            let findAlbumId = albumArray.find((albumItem) =>
-            albumItem.album.cover_medium===val
+//             let findAlbumId = albumArray.find((albumItem) =>
+//             albumItem.album.cover_medium===src
            
-          )
-          console.log(findAlbumId)
-        })
+//           )
+//           console.log(findAlbumId.id)
+//         })
       
-    });
+//     });
     
-}
+// }

@@ -157,3 +157,10 @@ a:hover{
    
     opacity:1;
   }
+  a{
+    color:white;
+   
+  }
+  a:hover{
+    text-decoration: none;
+  }

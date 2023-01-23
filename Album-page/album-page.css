@@ -1,0 +1,19 @@
+body{
+    padding: 20px;
+}
+p{
+    font-size: 13px;
+    color: grey;
+}
+small{
+    color: grey;
+}
+#top.row{
+    background-color:rgb(169, 68, 139) 
+}
+.green{
+    background-color: rgb(36, 176, 67);
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}

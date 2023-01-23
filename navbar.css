@@ -37,24 +37,30 @@ body{
 }
 #top{
     display: flex;
-    max-height:50vw;
+    max-height:80vh;
 }
 aside{
     background-color: #000000;
     color: #97a4a6;
-    padding-left: 30px;
-    max-height:90vh;
+    max-height:80vh;
     overflow: hidden;
 
 }
+.side-wrapper{
+    padding-right:20px;
+    padding-left:20px;
+}
 .main-content{
-    max-height: 90vh;
+    max-height: 80vh;
     background: rgb(76,76,74);
     background: linear-gradient(180deg, rgba(76,76,74,1) 0%, rgba(18,18,18,1) 51%);
 }
 .play-bar{
     background-color: #181818;
-    max-height:10vh;
+    max-height:20vh;
+    position:fixed;
+    bottom:0;
+    width:100%;
 }
 
 .white-text{
@@ -75,6 +81,7 @@ aside{
 #top-playlists{
     font-size: 15px;
     font-family: Gotham;
+    padding-left:20px;
 }
 
 .spotify-image{
@@ -116,13 +123,8 @@ aside{
 }
 
 .play-button{
-    height:45px;
+    height:40px;
     margin-right:40px;
-}
-
-.song-icons{
-    display:flex;
-    justify-content: space-between;
 }
 
 .play-line{
@@ -152,4 +154,12 @@ aside{
 
 #top-playlists{
     overflow: auto;
+}
+
+.shuffle-on{
+    filter: brightness(1.1) contrast(3);
+}
+
+#current-album-cover{
+    height:50px;
 }

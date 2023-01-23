@@ -28,7 +28,7 @@ playlists = [
 let aside = document.getElementsByTagName('aside')[0];
 
 aside.innerHTML=`
-<div>
+<div class="side-wrapper">
     <img src="./assets/logo-spotify.png" alt="" class="spotify-image"/>
     <p class="top-of-sidebar"><img src="./assets/house-door-fill.svg" class="left-icons"/>Home</p>
     <p class="top-of-sidebar"><img src="./assets/search.svg" alt="" class="left-icons"/>Search</p>
@@ -37,7 +37,7 @@ aside.innerHTML=`
     <p><img src="./assets/plus-square.svg" class="left-icons"/>Create Playlist</p>
     <p><img src="./assets/chat-heart-fill.svg" class="left-icons"/>Liked Songs</p>
 </div>
-<hr "aside-hr">
+<hr class="aside-hr">
 <div id="top-playlists">
 </div>
 `;

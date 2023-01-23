@@ -38,7 +38,8 @@ aside.innerHTML=`
     <p><img src="./assets/chat-heart-fill.svg" class="left-icons"/>Liked Songs</p>
 </div>
 <hr class="aside-hr">
-<div id="top-playlists">
+<div id="playlist-wrapper">
+    <div id="top-playlists"></div>
 </div>
 `;
 

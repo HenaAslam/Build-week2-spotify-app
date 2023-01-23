@@ -1,0 +1,33 @@
+body{
+    margin:0;
+}
+#all-content{
+    display:flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+#top{
+    display: flex;
+    flex-grow:9;
+}
+aside{
+    background-color: #000000;
+    flex-grow: 1;
+}
+.main-content{
+    flex-grow:8;
+    background: rgb(76,76,74);
+    background: linear-gradient(180deg, rgba(76,76,74,1) 0%, rgba(18,18,18,1) 51%);
+}
+.play-bar{
+    background-color: #181818;
+    flex-grow: 1;
+}
+
+.white-text{
+    color:white;
+}
+
+.play-list-text{
+    color:6c6c6c;
+}

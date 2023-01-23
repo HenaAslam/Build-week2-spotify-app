@@ -1,5 +1,22 @@
 //const url="https://striveschool-api.herokuapp.com/api/deezer/search?q="
 
+
+
+const renderAlbums=(arrayOfAlbums)=>{
+let rawNode=document.getElementById('recentlyplayed')
+for(let i=0;1<=8;i++){
+    rawNode.innerHTML="hello"
+//     rawNode.innerHTML+=`<div class="card" >
+//     <img src="" class="card-img-top" alt="...">
+//     <div class="card-body">
+//       <h5 class="card-title">Card title</h5>
+//       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+//       <a href="#" class="btn btn-primary">Go somewhere</a>
+//     </div>
+//   </div>`
+}
+
+}
 const fetchSongs=()=>{
 
 
@@ -13,9 +30,16 @@ const fetchSongs=()=>{
 
     
 
-    fetch('https://deezerdevs-deezer.p.rapidapi.com/album',options)
+    fetch('https://striveschool-api.herokuapp.com/api/deezer/album/75621062',options)
 	.then(response => response.json())
-	.then(jsonResponse => console.log(jsonResponse))
+	.then((jsonResponse) => {
+        console.log(jsonResponse)
+        renderAlbums()
+        
+    }
+    )
 	.catch(err => console.error(err));
 }
+
+
 fetchSongs()

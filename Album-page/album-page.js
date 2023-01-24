@@ -4,7 +4,7 @@ const params = new URLSearchParams(location.search)
 const id = params.get("id")
 console.log(id)
 
-idd="75621062"
+
 console.log(id)
 let allSongs=[]
 const options = {
@@ -46,7 +46,7 @@ return ret
 }
 
 
-const getAlbum= async (albumID=idd)=>{
+const getAlbum= async (albumID=id)=>{
     try{
   let res= await fetch(url+albumID,{options})
   let artist= await res.json()
@@ -119,4 +119,4 @@ const getAlbum= async (albumID=idd)=>{
 
 
 
-window.onload=getAlbum(idd)
+window.onload=getAlbum(id)

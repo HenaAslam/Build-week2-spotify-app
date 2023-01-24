@@ -1,0 +1,5 @@
+#main-content{
+    flex-grow:1;
+    background: rgb(76,76,74);
+    background: linear-gradient(180deg, rgba(76,76,74,1) 0%, rgba(18,18,18,1) 51%);
+}

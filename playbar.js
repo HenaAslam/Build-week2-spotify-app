@@ -58,13 +58,13 @@ createPlayBar= ()=>{
     let playBar = document.getElementById("play-bar");
 
     playBar.innerHTML =`
-    <div class="container">
+    <div class="container-fluid">
         <div class="row" id="play-bar-content"></div>
     </div>
     `
     let playBarContent = document.getElementById("play-bar-content");
     playBarContent.innerHTML=`
-    <div class="col-4 song-and-artist-play-bar">
+    <div class="col-3 song-and-artist-play-bar">
         <img src=${currentSong.album.cover_small} id="current-album-cover">
         <div class="">
             <p>${currentSong.title}</p>
@@ -72,8 +72,8 @@ createPlayBar= ()=>{
         </div>
         <img src="./assets/suit-heart.svg" class="play-bar-icons">
     </div>
-    <div class="col-4 middle-of-play-bar">
-        <div class="song-icons">
+    <div class="col-5 middle-of-play-bar">
+        <div class="song-icons d-flex justify-content-center">
             <img src="./assets/shuffle.svg" class="play-bar-icons play-bar-icons-big" id="shuffle-icon" onclick="toggleShuffle()">
             <img src="./assets/skip-backward.svg" class="play-bar-icons play-bar-icons-big" onclick="previousSong()">
             <img src="./assets/play-circle-fill.svg" class="play-bar-icons play-button" onclick="playOrPauseSong(this)">

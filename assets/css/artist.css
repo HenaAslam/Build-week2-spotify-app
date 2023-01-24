@@ -1,0 +1,56 @@
+.artist-cover{
+    width:100%;
+    height:400px;
+    object-fit:cover
+}
+
+.artist-top{
+    position: absolute;
+    bottom:20px;
+    color:white;
+}
+
+.top-cover{
+    position: relative;
+}
+
+.artist-name{
+    font-size:100px;
+}
+
+.box{
+    border:solid;
+    border-color: white;
+    border:2px;
+}
+
+.artist-top-row{
+    margin-top:25px;
+    margin-left:20px;
+}
+.artist-play{
+    height:70px;
+    filter: invert(57%) sepia(82%) saturate(379%) hue-rotate(84deg) brightness(90%) contrast(90%);
+}
+
+.btn{
+    color:white !important;
+    border:solid;
+    border-width: 1px;
+}
+
+.table{
+    color:white;
+}
+
+.hidden{
+    display:none;
+}
+
+.artist-pick{
+    display:flex;
+}
+.artist-pick-container{
+    display:flex;
+    flex-direction: column;
+}

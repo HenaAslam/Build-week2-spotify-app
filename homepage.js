@@ -10,7 +10,7 @@ const recentlyPlayed=(array)=>{
     
 
     arr.forEach(element => {
-        rowNode.innerHTML+=`<a href='./album.html?id=${element.album.id}'
+        rowNode.innerHTML+=`<a href='./referencetopassalbumid.html?id=${element.album.id}'
         <div class="col mb-2 mb-md-1">
         <div class="card" style="position:relative">
            <img src="${element.album.cover_medium}" class="card-img-top mt-2 mb-2 px-2" alt="...">

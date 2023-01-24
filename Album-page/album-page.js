@@ -1,9 +1,9 @@
 const url="https://striveschool-api.herokuapp.com/api/deezer/album/75621062"
 
-const queryString = window.location.search
-const urlParams = new URLSearchParams(queryString)
-console.log(urlParams)
-const id = urlParams.get("id")
+const params = new URLSearchParams(location.search)
+const id = params.get("id")
+console.log(id)
+
 console.log(id)
 let allSongs=[]
 const options = {
@@ -45,7 +45,7 @@ return ret
 }
 
 
-const getAlbum= async ()=>{
+const getAlbum= async (albumID=id)=>{
     try{
   let res= await fetch(url,{options})
   let artist= await res.json()
@@ -87,11 +87,11 @@ const getAlbum= async ()=>{
      
         
         tr.innerHTML=`
-        <th scope="row">${i+1}</th>
-        <td >${track.title}
-        <p>${track.artist.name}</p></td>
+        <th scope="row" class="play-list-text">${i+1}</th>
+        <td class="white-text">${track.title}
+        <p class="play-list-text">${track.artist.name}</p></td>
         <td></td>
-        <td>${mins}</td>
+        <td class="play-list-text">${mins}</td>
 
         `
         allSongs.push(track.preview)
@@ -102,22 +102,22 @@ const getAlbum= async ()=>{
        }
        console.log(allSongs)
        let albumTime=timeConvert2(time)
-       let section1=document.getElementById("top")
+       let section1=document.getElementById("section1")
     
        let fullDate=artist.release_date
        let year=fullDate.substring(0,4)
        section1.innerHTML=`
-       <div class="col-3">
-       <img class="mx-5 mt-3 img-fluid" src="${artist.cover_medium}" alt="">
+       <div class="col-md-2 col-lg-2">
+       <img class="mt-3" src="${artist.cover_medium}" alt="">
       </div>
-      <div class="col-9 mt-5">
-        <h3>Album</h3>
-        <h1>${artist.title}</h1>
-        <img src="${artist.cover_small}" alt="">
+      <div class="col-md-6 col-lg-9">
+        <h3 class="white-text">Album</h3>
+        <h1 class="white-text">${artist.title}</h1>
+        <img class="small" src="${artist.cover_small}" alt="">
         <b>${artist.artist.name}</b>
-        <small>•${year}</small>
-        <small>•${artist.tracks.data.length} songs,</small>
-        <small>Duration:${albumTime}</small>
+        <small class="play-list-text">•${year}</small>
+        <small class="play-list-text">•${artist.tracks.data.length} songs,</small>
+        <small class="play-list-text">Duration:${albumTime}</small>
       </div>
        `
    

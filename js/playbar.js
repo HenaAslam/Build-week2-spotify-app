@@ -70,15 +70,15 @@ createPlayBar= ()=>{
             <p>${currentSong.title}</p>
             <p>${currentSong.artist.name}</p>
         </div>
-        <img src="./assets/suit-heart.svg" class="play-bar-icons">
+        <img src="./assets/icons/suit-heart.svg" class="play-bar-icons">
     </div>
     <div class="col-5 middle-of-play-bar">
         <div class="song-icons d-flex justify-content-center">
-            <img src="./assets/shuffle.svg" class="play-bar-icons play-bar-icons-big" id="shuffle-icon" onclick="toggleShuffle()">
-            <img src="./assets/skip-backward.svg" class="play-bar-icons play-bar-icons-big" onclick="previousSong()">
-            <img src="./assets/play-circle-fill.svg" class="play-bar-icons play-button" onclick="playOrPauseSong(this)">
-            <img src="./assets/skip-forward.svg" class="play-bar-icons play-bar-icons-big" onclick="nextSong()">
-            <img src="./assets/arrow-counterclockwise.svg" class="play-bar-icons play-bar-icons-big">
+            <img src="./assets/icons/shuffle.svg" class="play-bar-icons play-bar-icons-big" id="shuffle-icon" onclick="toggleShuffle()">
+            <img src="./assets/icons/skip-backward.svg" class="play-bar-icons play-bar-icons-big" onclick="previousSong()">
+            <img src="./assets/icons/play-circle-fill.svg" class="play-bar-icons play-button" onclick="playOrPauseSong(this)">
+            <img src="./assets/icons/skip-forward.svg" class="play-bar-icons play-bar-icons-big" onclick="nextSong()">
+            <img src="./assets/icons/arrow-counterclockwise.svg" class="play-bar-icons play-bar-icons-big">
         </div>
         <div class="play-line-div">
             <p>0:00</p>
@@ -88,9 +88,9 @@ createPlayBar= ()=>{
     </div>
     <div class="col-2 volume align-items-center d-flex">
         <div>
-            <img src="./assets/playlist.png" class="play-bar-icons">
-            <img src="./assets/pc-display.svg" class="play-bar-icons">
-            <img src="./assets/volume-up.svg" class="play-bar-icons">
+            <img src="./assets/icons/playlist.png" class="play-bar-icons">
+            <img src="./assets/icons/pc-display.svg" class="play-bar-icons">
+            <img src="./assets/icons/volume-up.svg" class="play-bar-icons">
         </div>
         <div class="volume-line"></div>
     </div>
@@ -98,10 +98,10 @@ createPlayBar= ()=>{
 }
 
 playOrPauseSong= (img)=>{
-    if(img.src.includes("/assets/play-circle-fill.svg")){
-        img.src="./assets/pause-circle-fill.svg"
+    if(img.src.includes("/assets/icons/play-circle-fill.svg")){
+        img.src="./assets/icons/pause-circle-fill.svg"
     }else{
-        img.src="./assets/play-circle-fill.svg"
+        img.src="./assets/icons/play-circle-fill.svg"
     }
 }
 

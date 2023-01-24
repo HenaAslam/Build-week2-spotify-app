@@ -1,25 +1,25 @@
 @font-face {
     font-family: "Gotham";
-    src: url("fonts/Gotham-Black.otf") format("opentype");
+    src: url("../fonts/Gotham-Black.otf") format("opentype");
 }
 @font-face {
     font-family: "Gotham-Bold";
-    src: url("fonts/Gotham-Bold.otf") format("opentype");
+    src: url("../fonts/Gotham-Bold.otf") format("opentype");
 }
 
 @font-face {
     font-family: "Gotham-Thin";
-    src: url("fonts/Gotham-Thin.otf") format("opentype");
+    src: url("../fonts/Gotham-Thin.otf") format("opentype");
 }
 
 @font-face {
     font-family: "Gotham-Light";
-    src: url("fonts/Gotham-Light.otf") format("opentype");
+    src: url("../fonts/Gotham-Light.otf") format("opentype");
 }
 
 @font-face {
     font-family: "Gotham-Medium";
-    src: url("fonts/Gotham-Medium.ttf");
+    src: url("../fonts/Gotham-Medium.ttf");
 }
 
 body{
@@ -36,8 +36,9 @@ body{
 }
 #top{
     display: flex;
-    padding-bottom: 120px;
     overflow: hidden;
+    bottom:120px;
+    height:100vh;
 }
 aside{
     background-color: #000000;
@@ -82,7 +83,6 @@ aside{
 #top-playlists{
     font-size: 15px;
     font-family: Gotham;
-    padding-left:25px;
     padding-bottom: 25px;
 }
 
@@ -157,7 +157,6 @@ aside{
 }
 #playlist-wrapper{
     overflow: auto;
-    height:500px;
     padding-bottom:50px;
 }
 

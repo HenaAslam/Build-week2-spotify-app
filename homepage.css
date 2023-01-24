@@ -1,99 +1,55 @@
-*{
-    box-sizing: border-box;
-}
-body{
-    margin:0;
-    color:white;
-    
-}
-#all-content{
-    display:flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-#top{
-    display: flex;
-    flex-grow:9;
-}
-aside{
-    background-color: #000000;
-    flex-grow: 1;
-    height:90vh;
- 
-
-}
-aside a{
-    color:white;
-}
-aside img{
-    height:48px;
-}
-.main-content{
-    flex-grow:8;
+#main-content{
+    flex-grow:1;
     background: rgb(76,76,74);
     background: linear-gradient(180deg, rgba(76,76,74,1) 0%, rgba(18,18,18,1) 51%);
-    margin-left:16vw
-}
-.play-bar{
-    background-color: #181818;
-    flex-grow: 1;
-    height:10vh;
 }
 
-.white-text{
-    color:white;
-}
-
-.play-list-text{
-    color:6c6c6c;
-    width:16vw;
-
-}
 .media img{
     border-top-left-radius:8px;
     border-bottom-left-radius: 8px;
+    height:64px;
+    width:64px;
 }
 .media-body{
-    /* background-color: rgb(92, 90, 90);
-    opacity:.3; */
-    background: rgba(15, 15, 15, 0.2);
-    height:56px;
+    background: rgba(88, 85, 85, 0.3);
+    height:64px;
     border-top-right-radius:8px;
     border-bottom-right-radius: 8px;
 }
 .media-body h5{
-    color:white
+    color:white;
+    font-size: 64%;
+ 
 }
-
-.media-body h5{
-    font-size:10px;
-}
-#recentlyplayed .card,#showstotry .card{
-    height:45vh
-}
-
 
 #recentlyplayed .card img, #showstotry .card img{
-    height:70%;
-    border-radius: 20px;
-}
 
+    border-radius: 20px;
+    
+}
 #recentlyplayed .card .card-title, #showstotry .card .card-title{
     font-size: 16px;
 }
+
 .card{
-    background-color: rgb(35, 33, 33);
-    
-    
+background-color: rgb(35, 33, 33);
 }
+a{
+    color:white;
+   
+  }
+  a:hover{
+    text-decoration: none;
+    color:white
+  }
 
 
-.play-btn {
+  .play-btn {
     position: absolute;
-    top:180px;
-    left: 145px;
-    width: 50px;
-    height: 50px;
+    top:50%;
+    left: 70%;
+    width: 3vw;
+    height: 3vw;
     background-color: #1DB954;
     border-radius: 50%;
    transform: translateY(48px);
@@ -122,45 +78,36 @@ aside img{
     transform: translateY(0px);
     opacity:1;
   }
-a:hover{
-    color:white
-}
-
-.play-btn-media{
-    position: absolute;
-    top:13px;
-   right:10px;
-    width: 30px;
-    height: 30px;
-    background-color: #1DB954;
-    border-radius: 50%;
+ #user-info i{
+  background: rgba(180, 159, 159, 0.3);
+  border-radius: 50%;
+  padding:8px;
+  color:white
+ }
  
-   opacity:0;
-   transition:  opacity 500ms;
-   cursor:pointer
+ .truncate {
+  width: 140px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  background: rgba(28, 27, 27, 0.3);
 }
 
-.triangle-media{
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    margin: auto;
-    width: 0;
-    height: 0;
-    border-style: solid;
-    border-width: 5px 0 5px 7px;
-    border-color:transparent transparent transparent #080707;
+#user-info img{
+height:20px;
+border-radius: 50%;
 }
-.media>img:hover + .play-btn-media{
-   
-    opacity:1;
-  }
-  a{
-    color:white;
-   
-  }
-  a:hover{
-    text-decoration: none;
-  }
+.card .card-text{
+  
+  font-family: "Gotham-Light";
+}
+.card-body span:hover{
+text-decoration: underline;
+}
+.see-all{
+  font-family: Gotham-Light;
+  font-size: 12px;
+  /* margin-bottom: 0;
+  padding-bottom: 0;
+  vertical-align: bottom; */
+}

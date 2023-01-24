@@ -31,8 +31,8 @@ table{
 }
 .no-space-right{
     padding-right: 0px !important;
-
-   border-collapse: collapse !important;
+  width:10px !important;
+ 
   
 }
 .no-space-left{
@@ -45,6 +45,9 @@ table{
     margin-left: 1em;
     margin-top: 1.5em;
 }
+.bi.bi-suit-heart:hover{
+    color: white;
+}
 .bi.bi-three-dots{
     color: #97a4a6;
     margin-left: 1em;
@@ -55,17 +58,26 @@ table{
   top:12px;
   left: 11px;
 }
+.bi.bi-three-dots:hover{
+    color: white;
+}
+
 .small{
     height: 30px;
     border-radius: 50%;
 }
-.col-md-6.col-lg-9{
-    margin-top: 8em;
+.col-lg-9{
+    margin-top: 8.7em;
    margin-left: 3em;
 }
+tr:hover{
+background-color: rgb(38, 39, 41);
+}
+tr:hover .play-list-text{
+    color: white;
+}
 
-
-/* @font-face {
+@font-face {
     font-family: "Gotham";
     src: url("fonts/Gotham-Black.otf") format("opentype");
 }
@@ -87,7 +99,7 @@ table{
 @font-face {
     font-family: "Gotham-Medium";
     src: url("fonts/Gotham-Medium.ttf");
-} */
+}
 
 body{
     margin:0;
@@ -121,7 +133,7 @@ aside{
 .main-content{
   
     width: 100%;
-    padding-left: 0.9em;
+  
     height: 80vh;
     background: rgb(76,76,74);
     background: linear-gradient(180deg, rgba(76,76,74,1) 0%, rgba(18,18,18,1) 51%);
@@ -141,7 +153,9 @@ aside{
 .play-list-text{
     color:#6c6c6c;
 }
-
+aside{
+    width:15em;
+}
 .aside-hr{
     width: 80%;
     background-color: #282828;
@@ -158,7 +172,8 @@ aside{
 
 .spotify-image{
     padding-top:30px;
-    height: 50px;
+    height: 80px;
+    width: 100px;
 }
 
 .left-icons{
@@ -181,6 +196,9 @@ aside{
     display: flex;
 }
 
+.song-icons{
+    display: flex;
+}
 .play-bar-icons{
     height:18px;
     filter: grayscale(100%) invert(100%);

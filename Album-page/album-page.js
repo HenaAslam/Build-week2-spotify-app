@@ -85,10 +85,11 @@ const getAlbum= async (albumID=id)=>{
          
         }
      
-        
+      
+       
         tr.innerHTML=`
         <th scope="row" class="play-list-text">${i+1}</th>
-        <td class="white-text">${track.title}
+        <td class="white-text no-space-left">${track.title}
         <p class="play-list-text">${track.artist.name}</p></td>
         <td></td>
         <td class="play-list-text">${mins}</td>
@@ -107,10 +108,10 @@ const getAlbum= async (albumID=id)=>{
        let fullDate=artist.release_date
        let year=fullDate.substring(0,4)
        section1.innerHTML=`
-       <div class="col-md-2 col-lg-2">
+       <div class="col-sm-12 col-md-2 col-lg-2">
        <img class="mt-3" src="${artist.cover_medium}" alt="">
       </div>
-      <div class="col-md-6 col-lg-9">
+      <div class="col-sm-12 col-md-9 col-lg-9">
         <h3 class="white-text">Album</h3>
         <h1 class="white-text">${artist.title}</h1>
         <img class="small" src="${artist.cover_small}" alt="">
@@ -119,12 +120,8 @@ const getAlbum= async (albumID=id)=>{
         <small class="play-list-text">•${artist.tracks.data.length} songs,</small>
         <small class="play-list-text">Duration:${albumTime}</small>
       </div>
-       `
-   
-        }
-
-       
- 
+       ` 
+      }
   }catch(err){
     console.log(err)
   }

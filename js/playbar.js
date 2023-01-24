@@ -134,4 +134,3 @@ function shuffleArray(array) {
   
     return array;
 }
-

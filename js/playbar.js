@@ -5,15 +5,15 @@ let album=[];
 let shuffleAlbum=[];
 let shuffle = false;
 let queueOfSongs=[];
-url="https://striveschool-api.herokuapp.com/api/deezer/search?q=pink+floyd"
+url1="https://striveschool-api.herokuapp.com/api/deezer/search?q=pink+floyd"
 getSongs = async()=>{
     try{
-        let res = await fetch(url, {
+        let res = await fetch(url1, {
             method: 'GET',
         })
+        console.log("hey");
         if(res.ok){
             res = await res.json();
-            console.log(res);
             currentSong=res.data[0];
             currentSongIndex = 0;
             album = res.data;
@@ -54,9 +54,9 @@ previousSong=()=>{
     }
     createPlayBar();
 }
+
 createPlayBar= ()=>{
     let playBar = document.getElementById("play-bar");
-
     playBar.innerHTML =`
     <div class="container-fluid">
         <div class="row" id="play-bar-content"></div>
@@ -134,7 +134,5 @@ function shuffleArray(array) {
   
     return array;
 }
-window.onload = ()=>{
-    getSongs();
-}
+
 

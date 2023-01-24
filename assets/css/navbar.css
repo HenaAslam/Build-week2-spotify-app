@@ -37,7 +37,7 @@ body{
 #top{
     display: flex;
     overflow: hidden;
-    bottom:120px;
+    padding-bottom:101px;
     height:100vh;
 }
 aside{
@@ -51,14 +51,15 @@ aside{
     padding-right:20px;
     padding-left:25px;
 }
-.main-content{
+#main-content{
+    flex-grow:1;
     background: rgb(76,76,74);
     background: linear-gradient(180deg, rgba(76,76,74,1) 0%, rgba(18,18,18,1) 51%);
     overflow: auto;
 }
 .play-bar{
     background-color: #181818;
-    height:120px;
+    height:101px;
     position:fixed;
     bottom:0;
     width:100%;

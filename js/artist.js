@@ -1,5 +1,5 @@
 const url="https://striveschool-api.herokuapp.com/api/deezer/search?q="
-let searchQuery = "taylor+swift"
+let searchQuery = "beatles"
 //const params = new URLSearchParams(location.search);
 
 const getArtist = async()=>{
@@ -92,8 +92,4 @@ const renderPage = (songs) =>{
         `
     }
 }
-
-window.onload=()=>{
-    getArtist();
-    getSongs();
-}
+getArtist();

@@ -1,4 +1,4 @@
-const url="https://striveschool-api.herokuapp.com/api/deezer/album/"
+const url="https://striveschool-api.herokuapp.com/api/deezer/album/75621062"
 
 const params = new URLSearchParams(location.search)
 const id = params.get("id")

@@ -134,3 +134,5 @@ function shuffleArray(array) {
   
     return array;
 }
+
+getSongs();

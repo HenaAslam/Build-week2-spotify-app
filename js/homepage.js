@@ -132,7 +132,9 @@ const fetchSongs=(search)=>{
 }
 
 
-fetchSongs("rock")
+    fetchSongs("coldplay")
+
+
 
 
 const userInfo=()=>{

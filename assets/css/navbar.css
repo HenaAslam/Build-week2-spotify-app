@@ -1,87 +1,3 @@
-
-p{
-    font-size: 13px;
-}
-
-#section1.row{
-    background-image:linear-gradient(#A9448B,#451238);
-    padding-bottom: 1em;
-}
-.green{
-    background-color: rgb(36, 176, 67);
-    height: 50px;
-    width: 50px;
-    border-radius: 50%;
-    margin-left: 2em;
-    margin-top: 1em;
-    position: relative;
-
-}
-b{
-    color: white;
-}
-.row:nth-of-type(2){
-    background-image:linear-gradient(#301028,5%,#0F0F0F) ;
-}
-table{
-    
-    margin-left: 2em;
-    margin-right: 1em;
-    
-}
-.no-space-right{
-    padding-right: 0px !important;
-  width:10px !important;
- 
-  
-}
-.no-space-left{
-    padding-left: 0 !important;
-    border-collapse: collapse !important;
-    
-}
-.bi.bi-suit-heart{
-    color: #97a4a6;
-    margin-left: 1em;
-    margin-top: 1.5em;
-}
-.bi.bi-suit-heart:hover{
-    color: white;
-}
-.bi.bi-three-dots{
-    color: #97a4a6;
-    margin-left: 1em;
-    margin-top: 1.5em;
-}
-.bi.bi-caret-right{
-    position: absolute;
-  top:12px;
-  left: 11px;
-}
-.bi.bi-three-dots:hover{
-    color: white;
-}
-
-.small{
-    height: 30px;
-    border-radius: 50%;
-}
-.col-lg-2 img{
-  height: 200px;
-  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2)
-}
-.col-lg-9{
-    margin-top: 3em;
-   margin-left: 5em;
-}
-tr:hover{
-background-color: rgb(38, 39, 41);
-}
-tr:hover .play-list-text{
-    color: white;
-}
-
-
 @font-face {
     font-family: "Gotham";
     src: url("../fonts/Gotham-Black.otf") format("opentype");
@@ -109,7 +25,6 @@ tr:hover .play-list-text{
 body{
     margin:0;
     font-family: Gotham;
-    background-color: rgb(15, 15, 15);
 }
 *{
     font:inherit;
@@ -118,9 +33,7 @@ body{
     display:flex;
     flex-direction: column;
     
-    
 }
-
 #top{
     display: flex;
     overflow: hidden;
@@ -139,13 +52,6 @@ aside{
     padding-left:25px;
 }
 .main-content{
-<<<<<<<< HEAD:assets/css/navbar.css
-========
-  
-    width: 100%;
-  
-    height: 80vh;
->>>>>>>> Album-Page:css/album-page.css
     background: rgb(76,76,74);
     background: linear-gradient(180deg, rgba(76,76,74,1) 0%, rgba(18,18,18,1) 51%);
     overflow: auto;
@@ -166,9 +72,7 @@ aside{
 .play-list-text{
     color:#6c6c6c;
 }
-aside{
-    width:15em;
-}
+
 .aside-hr{
     width: 80%;
     background-color: #282828;
@@ -185,11 +89,7 @@ aside{
 .spotify-image{
     padding-top:30px;
     height: 80px;
-<<<<<<<< HEAD:assets/css/navbar.css
     margin-bottom:30px;
-========
-    width: 100px;
->>>>>>>> Album-Page:css/album-page.css
 }
 
 .left-icons{
@@ -212,9 +112,6 @@ aside{
     display: flex;
 }
 
-.song-icons{
-    display: flex;
-}
 .play-bar-icons{
     height:18px;
     filter: grayscale(100%) invert(100%);
@@ -293,28 +190,4 @@ aside{
     background: #555; 
   }
 
-<<<<<<<< HEAD:assets/css/navbar.css
   
-========
- 
-  @media screen and (max-width: 1000px){
-    .col-lg-9{
-
-       margin-left: 0px;
-     
-    }
-    .col-lg-2 img{
-        height: 200px;
-        box-shadow: 3px 3px black;
-    
-      }
-  }
-  @media (min-width: 768px) { 
-    .col-lg-2 img{
-        height: 200px;
-        box-shadow: 3px 3px black;
-        justify-content: center;
-    
-      }
-  }
->>>>>>>> Album-Page:css/album-page.css

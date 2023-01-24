@@ -1,9 +1,10 @@
-const url="https://striveschool-api.herokuapp.com/api/deezer/album/75621062"
+const url="https://striveschool-api.herokuapp.com/api/deezer/album/"
 
 const params = new URLSearchParams(location.search)
 const id = params.get("id")
 console.log(id)
 
+idd="75621062"
 console.log(id)
 let allSongs=[]
 const options = {
@@ -45,9 +46,9 @@ return ret
 }
 
 
-const getAlbum= async (albumID=id)=>{
+const getAlbum= async (albumID=idd)=>{
     try{
-  let res= await fetch(url,{options})
+  let res= await fetch(url+albumID,{options})
   let artist= await res.json()
 
  if(res.ok){
@@ -67,26 +68,10 @@ const getAlbum= async (albumID=id)=>{
          tr.onclick=function play(){
           let audio=new Audio()
           audio.src=track.preview
-          if(musicPlaying=[]){
-          musicPlaying.push(audio)
-          musicPlaying[0].play()
-          console.log(musicPlaying)
-         } else if(musicPlaying!=[]){
-          musicPlaying[0].pause()
-        
-          musicPlaying.splice(0,audio)
-        
-          musicPlaying[0].play()
-          console.log(musicPlaying)
-
-          
-         }
+          audio.play()
           
          
         }
-     
-      
-       
         tr.innerHTML=`
         <th scope="row" class="play-list-text">${i+1}</th>
         <td class="white-text no-space-left">${track.title}
@@ -96,22 +81,22 @@ const getAlbum= async (albumID=id)=>{
 
         `
         allSongs.push(track.preview)
-
+        console.log(allSongs)
   time+=artist.tracks.data[i].duration
 
         tbody.appendChild(tr)
        }
-       console.log(allSongs)
+     
        let albumTime=timeConvert2(time)
        let section1=document.getElementById("section1")
     
        let fullDate=artist.release_date
        let year=fullDate.substring(0,4)
        section1.innerHTML=`
-       <div class="col-sm-12 col-md-2 col-lg-2">
+       <div class="col-sm-12 col-md-4 col-lg-2">
        <img class="mt-3" src="${artist.cover_medium}" alt="">
       </div>
-      <div class="col-sm-12 col-md-9 col-lg-9">
+      <div class="col-sm-12 col-md-8 col-lg-9">
         <h3 class="white-text">Album</h3>
         <h1 class="white-text">${artist.title}</h1>
         <img class="small" src="${artist.cover_small}" alt="">
@@ -121,6 +106,8 @@ const getAlbum= async (albumID=id)=>{
         <small class="play-list-text">Duration:${albumTime}</small>
       </div>
        ` 
+   
+  
       }
   }catch(err){
     console.log(err)
@@ -132,4 +119,4 @@ const getAlbum= async (albumID=id)=>{
 
 
 
-window.onload=getAlbum()
+window.onload=getAlbum(idd)

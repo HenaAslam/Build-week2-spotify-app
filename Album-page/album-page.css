@@ -66,9 +66,13 @@ table{
     height: 30px;
     border-radius: 50%;
 }
+.col-lg-2 img{
+  height: 200px;
+  box-shadow: 0 3px 10px rgb(0 0 0 / 0.2)
+}
 .col-lg-9{
-    margin-top: 8.7em;
-   margin-left: 3em;
+    margin-top: 3em;
+   margin-left: 5em;
 }
 tr:hover{
 background-color: rgb(38, 39, 41);
@@ -76,6 +80,7 @@ background-color: rgb(38, 39, 41);
 tr:hover .play-list-text{
     color: white;
 }
+
 
 @font-face {
     font-family: "Gotham";
@@ -277,4 +282,26 @@ aside{
   /* Handle on hover */
   ::-webkit-scrollbar-thumb:hover {
     background: #555; 
+  }
+
+ 
+  @media screen and (max-width: 1000px){
+    .col-lg-9{
+
+       margin-left: 0px;
+     
+    }
+    .col-lg-2 img{
+        height: 200px;
+        box-shadow: 3px 3px black;
+    
+      }
+  }
+  @media (min-width: 768px) { 
+    .col-lg-2 img{
+        height: 200px;
+        box-shadow: 3px 3px black;
+        justify-content: center;
+    
+      }
   }

@@ -1,4 +1,6 @@
-
+*{
+  box-sizing: border-box;
+}
 .media img{
     border-top-left-radius:8px;
     border-bottom-left-radius: 8px;
@@ -28,6 +30,7 @@
 
 .card{
 background-color: rgb(35, 33, 33);
+transition: background-color 400ms;
 }
 a{
     color:white;
@@ -49,7 +52,7 @@ a{
     border-radius: 50%;
    transform: translateY(48px);
    opacity:0;
-   transition: transform 300ms, opacity 300ms;
+   transition: transform 400ms, opacity 400ms;
    cursor:pointer
     
   }
@@ -64,12 +67,12 @@ a{
     width: 0;
     height: 0;
     border-style: solid;
-    border-width: 7px 0 7px 13px;
-    border-color:transparent transparent transparent #080707;
-  }
+    border-width: 7px 0 7px 12px;
+    border-color: transparent transparent transparent #090e14;
+}
 
 
-  .card>img:hover + .play-btn{
+  .card:hover .play-btn{
     transform: translateY(0px);
     opacity:1;
   }
@@ -78,6 +81,9 @@ a{
   border-radius: 50%;
   padding:8px;
   color:white
+ }
+ #user-info i:hover{
+  background-color: grey;
  }
  
  .truncate {
@@ -102,7 +108,10 @@ text-decoration: underline;
 .see-all{
   font-family: Gotham-Light;
   font-size: 12px;
-  /* margin-bottom: 0;
-  padding-bottom: 0;
-  vertical-align: bottom; */
+}
+aside{
+  width:350px;
+}
+.card:hover{
+  background-color: rgb(71, 66, 66);
 }

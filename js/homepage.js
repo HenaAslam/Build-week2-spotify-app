@@ -5,7 +5,7 @@ const goodMorning=(array)=>{
     let rowNode=document.getElementById("goodmorning")
     let arr=array.slice(5,15)
     arr.forEach(element => {
-        rowNode.innerHTML+=     `<a href='./referencetopassalbumid.html?id=${element.album.id}'>
+        rowNode.innerHTML+=     `<a href='./album-page.html?id=${element.album.id}'>
         <div class="col">
         <div class="media mb-4" >
         <img src="${element.album.cover_small}"  alt="...">
@@ -29,7 +29,7 @@ const recentlyPlayed=(array)=>{
         rowNode.innerHTML+=`
         <div class="col mb-5">
         <div class="card h-100" style="position:relative" >
-        <a href='./referencetopassalbumid.html?id=${element.album.id}'>
+        <a href='./album-page.html?id=${element.album.id}'>
            <img src="${element.album.cover_medium}" class="card-img-top mt-2 mb-2 px-2" alt="...">
           
            <div class="play-btn d-none d-lg-block">
@@ -41,7 +41,7 @@ const recentlyPlayed=(array)=>{
               <h5 class="card-title text-white">${element.title}</h5>
              </a>
 
-             <a href='./referencetopassartistid.html?id=${element.artist.id}'>
+             <a href='./artist.html?id=${element.artist.id}'>
               <span class="card-text text-white" >${element.artist.name}</span>
               </a>
           
@@ -60,7 +60,7 @@ const showstoTry=(array)=>{
         rowNode.innerHTML+=`
         <div class="col mb-5">
         <div class="card h-100" style="position:relative" >
-        <a href='./referencetopassalbumid.html?id=${element.album.id}'>
+        <a href='./album-page.html?id=${element.album.id}'>
            <img src="${element.album.cover_medium}" class="card-img-top mt-2 mb-2 px-2" alt="...">
           
            <div class="play-btn d-none d-lg-block">
@@ -72,7 +72,7 @@ const showstoTry=(array)=>{
               <h5 class="card-title text-white">${element.title}</h5>
              </a>
 
-             <a href='./referencetopassartistid.html?id=${element.artist.id}'>
+             <a href='./artist.html?id=${element.artist.id}'>
               <span class="card-text text-white" >${element.artist.name}</span>
               </a>
           
@@ -131,8 +131,10 @@ const fetchSongs=(search)=>{
 	.catch(err => console.error(err));
 }
 
-
-    fetchSongs("coldplay")
+window.onload=()=>{
+    fetchSongs("rock")
+}
+ 
 
 
 

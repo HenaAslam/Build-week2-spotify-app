@@ -1,0 +1,131 @@
+*{
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: "Gotham";
+    src: url("../fonts/Gotham-Black.otf") format("opentype");
+}
+@font-face {
+    font-family: "Gotham-Bold";
+    src: url("../fonts/Gotham-Bold.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Gotham-Thin";
+    src: url("../fonts/Gotham-Thin.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Gotham-Light";
+    src: url("../fonts/Gotham-Light.otf") format("opentype");
+}
+
+@font-face {
+    font-family: "Gotham-Medium";
+    src: url("../fonts/Gotham-Medium.ttf");
+}
+
+body{
+    margin:0;
+    font-family: "Gotham";
+  
+}
+span:first-of-type{
+    font-family: "Gotham-Bold";
+}
+.container:first-of-type img{
+    height:80px;
+    color:black
+}
+.buttons{
+    row-gap: 10px;
+    font-family: Gotham-Bold;
+
+}
+.buttons button{
+    font-size: 14px;
+    padding-left:100px;
+    padding-right:100px;
+    padding-top:10px;
+    padding-bottom:10px;
+    
+    letter-spacing: .15rem
+    
+
+}
+
+.buttons button:nth-of-type(2){
+    background-color: black;
+    border:none
+}
+.buttons button:nth-of-type(3){
+    background: transparent;
+    border:1px solid rgb(156, 140, 140)
+}
+.buttons button:hover{
+    border:1px solid black
+}
+
+.row hr{
+    width:180px
+}
+input[type="email"],input[type="password"]{
+   width:450px;
+   height:50px;
+    padding-top:10px;
+    padding-bottom:10px;
+    font-family: 'Gotham-Thin'
+}
+input[type="email"]:focus,input[type="password"]:focus{
+border:2.5px solid black;
+box-shadow:none
+}
+input[type="checkbox"]{
+    accent-color:rgb(25, 200, 25);
+    height:20px;
+    width:20px
+   
+}
+form button{
+    width:240px;
+}
+.password{
+    font-family: 'Gotham-Light';
+    color:rgb(45, 41, 41);
+    text-decoration: underline;
+    
+}
+.password:hover{
+    color:green
+}
+.line{
+    width:450px;
+}
+.account{
+    font-family: "Gotham-Bold";
+    letter-spacing: .5px;
+}
+.signup{
+    font-family: 'Gotham-Bold';
+    font-size: 14px;
+    padding-left:140px;
+    padding-right:140px;
+    padding-top:10px;
+    padding-bottom:10px;
+    
+    letter-spacing: .15rem;
+    background: transparent;
+    border:1px solid rgb(156, 140, 140)
+}
+.signup:hover{
+    border: 1px solid black;
+    background-color: transparent;
+
+}
+.terms{
+    width:450px;
+    text-align: center;
+    color:grey;
+    font-family: "Gotham-Light";
+    font-size: 12px;
+}

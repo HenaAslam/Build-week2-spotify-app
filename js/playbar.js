@@ -11,7 +11,7 @@ getSongs = async()=>{
         let res = await fetch(url1, {
             method: 'GET',
         })
-        console.log("hey");
+        //console.log("hey");
         if(res.ok){
             res = await res.json();
             currentSong=res.data[0];

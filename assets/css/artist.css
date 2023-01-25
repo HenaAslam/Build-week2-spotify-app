@@ -63,7 +63,7 @@ body{
     flex-direction: column;
 }
 .artist-pick-line-height{
-    line-height: .7!important;
+    line-height: 1!important;
 }
 .card{
     background-color: rgb(35, 33, 33);

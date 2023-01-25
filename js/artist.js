@@ -1,12 +1,30 @@
-const url="https://striveschool-api.herokuapp.com/api/deezer/search?q="
-let searchQuery = "miley+cyrus"
+let currentURL = document.URL;
+let artistURL = "https://striveschool-api.herokuapp.com/api/deezer/artist/"
+let artistId = location.search.slice(2);
+const searchUrl="https://striveschool-api.herokuapp.com/api/deezer/search?q="
+let searchQuery;
 //const params = new URLSearchParams(location.search);
-
 let topAlbums = [];
 let topAlbumsTitles=[];
+
+const getArtistData = async()=>{
+    try {
+        let res = await fetch(artistURL+artistId)
+        if(res.ok){
+            res = await res.json();
+            console.log(res);
+            let artistName=res.name;
+            artistName = artistName.replaceAll(' ', '+')
+            searchQuery=artistName.toLowerCase();
+            getArtist()
+        }
+    }catch(error){
+        console.log(error);
+    }
+}
 const getArtist = async()=>{
     try{
-        let res = await fetch(url+searchQuery, {
+        let res = await fetch(searchUrl+searchQuery, {
             method: 'GET',
         })
         if(res.ok){
@@ -77,7 +95,7 @@ const renderPage = (songs) =>{
             </div>
             <br>
             <div class="row">
-                <div class="col-8">
+                <div class="col-lg-8 col-xl-8 col-12">
                     <h4>Popular</h4>
                     <table class="table table-borderless">
                         <tr class="hidden">
@@ -90,7 +108,7 @@ const renderPage = (songs) =>{
                         </tbody>
                     </table>
                 </div>
-                <div class="col-4 artist-pick-container">
+                <div class="col-4 artist-pick-container d-none d-lg-block">
                     <h4>Artist Pick</h4>
                     <div class="artist-pick">
                         <div>
@@ -129,7 +147,7 @@ const renderPage = (songs) =>{
         discography.innerHTML+=`
             <div class="discography-card col-lg-2 col-md-4 col-6 mb-5">
                 <div class="card" style="position:relative" >
-                    <a href='./referencetopassalbumid.html?id=${element.id}'>
+                    <a href='./album-page.html?id=${element.id}'>
                         <img src="${element.image}" class="card-img-top mt-2 mb-2 px-2" alt="...">
                         
                         <div class="play-btn d-none d-lg-block">
@@ -148,4 +166,4 @@ const renderPage = (songs) =>{
         `
     })
 }
-getArtist();
+getArtistData();

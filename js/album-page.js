@@ -47,10 +47,11 @@ return ret
 
 
 const getAlbum= async (id)=>{
+  console.log(id)
     try{
   let res= await fetch(url+id,{options})
   let artist= await res.json()
-
+  console.log(artist)
  if(res.ok){
     let time=0
       
@@ -80,11 +81,11 @@ const getAlbum= async (id)=>{
         //  }
    
 
-        searchQuery=track.artist.name
+        searchQuery=track.artist.id;
         tr.innerHTML=`
         <th scope="row" class="play-list-text">${i+1}</th>
         <td class="white-text no-space-left">${track.title}
-       <a href="artist.html?q=${searchQuery}"><p class="play-list-text">${track.artist.name}</p></a></td>
+       <a href="artist.html?id=${searchQuery}"><p class="play-list-text">${track.artist.name}</p></a></td>
         <td></td>
         <td class="play-list-text">${mins}</td>
 
@@ -111,7 +112,7 @@ const getAlbum= async (id)=>{
         <h3 class="white-text">Album</h3>
         <h1 class="white-text">${artist.title}</h1>
         <img class="small" src="${artist.cover_small}" alt="">
-       <a href="artist.html?q=${artist.artist.name}"><b>${artist.artist.name}</b></a>
+       <a href="artist.html?id=${artist.artist.id}"><b>${artist.artist.name}</b></a>
         <small class="play-list-text">•${year}</small>
         <small class="play-list-text">•${artist.tracks.data.length} songs,</small>
         <small class="play-list-text">Duration:${albumTime}</small>
@@ -133,3 +134,7 @@ const getAlbum= async (id)=>{
 
 
 window.onload=getAlbum(id)
+
+
+
+

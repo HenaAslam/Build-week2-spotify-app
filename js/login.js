@@ -41,10 +41,10 @@ const onLoadActions=()=>{
                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                 <label class="form-check-label pl-2 pt-1" for="exampleCheck1" style="font-family: 'Gotham-Light'">Remember me</label>
     </div>
-    <button type="submit" class="btn btn-success rounded-pill px-5 py-3" id="login" onclick="correctPassword()">LOG IN</button>
+   <button type="submit" class="btn btn-success rounded-pill px-5 py-3" id="login" onclick="correctPassword()">LOG IN</button>
   </div>
   
-
+ 
 
 <a href="#" class="password py-3">Forgot your password?</a>
 <div class="line"><hr></div>
@@ -77,56 +77,25 @@ const correctPassword=()=>{
 
     let check=credentials.find((user)=>(user.username===email && user.password===pass))
     if(check){
-        window.location.href="homepage.html"
+
+        sessionStorage.setItem('Username',check.username);
+       window.location.href="homepage.html"
     }
     else{
-        incorrectalertmsg.classList.replace("d-none","d-block")
-        setTimeout(() => {
-       incorrectalertmsg.classList.replace("d-block","d-none")
-            }, 3000);
+        if(emptyalertmsg.classList.contains("d-none")){
+            incorrectalertmsg.classList.replace("d-none","d-block")
+            setTimeout(() => {
+           incorrectalertmsg.classList.replace("d-block","d-none")
+                }, 3000);
+        }
+      
     }
  
    
 }
 
-
-
-   
-
-    // let check = customer.find((x) => (x.name === name && x.password === password))
-    // if(existsUser){
-    //   alert('Navigate to new page')
-    // }
-//   }
-
- 
-// 
-//   window.location.href = "homepage.html"  
-//     
-
-   
- 
-// }
-// const correctPassword=()=>{
-//     let btn=document.querySelector('#login')
-//     let alertmsg=document.querySelector('#alert')
-//     let email=document.querySelector("#email")
-//     let password=document.querySelector("#pw")
-//     if(email.value==="abc@gamil.com" && password.value==="abc"){
-//         btn.addEventListener("click",function(){
-//             window.location.href="./homepage.html"
-//         })
-//     }
-   
- 
-// }
-
-
-
-
 window.onload=()=>{
     onLoadActions()
   
-    //correctPassword()
 }
 

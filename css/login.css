@@ -103,8 +103,8 @@ form button{
     width:450px;
 }
 .account{
-    font-family: "Gotham-Bold";
-    letter-spacing: .5px;
+    font-family: "Gotham";
+    font-size: 20px;
 }
 .signup{
     font-family: 'Gotham-Bold';

@@ -1,4 +1,5 @@
 let albumArray=[]
+var Username = sessionStorage.getItem('Username');
 
 
 const goodMorning=(array)=>{
@@ -84,33 +85,6 @@ const showstoTry=(array)=>{
     });
  
 }
-// 
-
-//     arr.forEach(element => {
-//         rowNode.innerHTML+=`<a href='./referencetopassalbumid.html?id=${element.album.id}'>
-//         <div class="col pb-0  mb-0">
-//         <div class="card pb-5" style="position:relative" >
-//            <img src="${element.album.cover_medium}" class="card-img-top mt-2 mb-2 px-2 pb-5" alt="...">
-//            <div class="play-btn d-none d-lg-block">
-//               <div class="triangle"></div>
-//           </div>
-//            <div class="card-body d-flex flex-column justify-content-center">
-//               <h5 class="card-title">${element.title}</h5>
-             
-//               <span class="card-text">${element.artist.name}</span>
-              
-          
-//             </div>
-//           </div>
-//           </div>
-//           </a>
-//           `
-//     });
- 
-// }
-
-  
-   
 
 
 
@@ -147,27 +121,9 @@ const userInfo=()=>{
     </div>
     <span class="badge badge-pill badge-dark truncate pt-1" >
     <img src="https://pbs.twimg.com/media/EFIv5HzUcAAdjhl.png">
-    Diego 'ziba' Babababaa    </span>
+    ${Username}
+    </span>
     `
 }
 userInfo()
-//dont need this anymore
-// const albumPage=(array)=>{
-//     let cards=document.querySelectorAll(".card")
-   
-//     cards.forEach(card => {
-//         card.addEventListener("click",(event)=>{
-//             let val=event.target
-          
-//             let src=val.src
-
-//             let findAlbumId = albumArray.find((albumItem) =>
-//             albumItem.album.cover_medium===src
-           
-//           )
-//           console.log(findAlbumId.id)
-//         })
-      
-//     });
-    
-// }
+// ${Username}==="null"? "${Username}" : "Diego 'Ziba' Bababababba"

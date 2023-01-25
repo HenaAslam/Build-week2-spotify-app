@@ -1,6 +1,6 @@
 let currentURL = document.URL;
 let artistURL = "https://striveschool-api.herokuapp.com/api/deezer/artist/"
-let artistId = location.search.slice(2);
+let artistId = location.search.slice(4);
 const searchUrl="https://striveschool-api.herokuapp.com/api/deezer/search?q="
 let searchQuery;
 //const params = new URLSearchParams(location.search);
@@ -154,10 +154,10 @@ const renderPage = (songs) =>{
                             <div class="triangle"></div>
                         </div>
                     
-                    </a>
                     <div class="card-body d-flex flex-column justify-content-center">
                         <h5 class="card-title text-white">${element.title}</h5>
-                        <a href='./referencetopassartistid.html?id=${element.artist.id}'>
+                    </a>
+                        <a href='./artist.html?id=${element.artist.id}'>
                             <span class="card-text text-white" >${element.artist}</span>
                         </a>
                     </div>

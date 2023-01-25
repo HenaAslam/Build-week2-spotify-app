@@ -66,20 +66,18 @@ const getAlbum= async (id)=>{
          let track=artist.tracks.data[i]
          let duration=track.duration
          let mins=timeConvert(duration)
-         tr.onclick=function play(){
-          let audio=new Audio()
-          audio.src=track.preview
-          music.push(audio)
-          music[0].play()
-         
-          if(music!=[]){
-            music[0].pause()
-            music.unshift(audio)  
-            music[0].play()
-            console.log(music[0])
-          }
-         
-         }
+        //  tr.onclick=function play(){
+        //   let audio=new Audio()
+        //   audio.src=track.preview
+        //   music.push(audio)
+        //   music[0].play()
+        //   if(music!=[]){
+        //     music[0].pause()
+        //     music.unshift(audio)  
+        //     music[0].play()
+        //     console.log(music[0])
+        //   }
+        //  }
    
 
         searchQuery=track.artist.name

@@ -47,6 +47,9 @@ aside{
     width:250px;
 
 }
+aside p:hover{
+    background-color: rgb(30, 30, 30);
+}
 .side-wrapper{
     padding-right:20px;
     padding-left:25px;
@@ -65,6 +68,12 @@ aside{
     width:100%;
     margin-top:1px;
 }
+.play-bar p{
+    font-size: 11px;  
+    margin-bottom: 0;
+}
+
+    
 
 .white-text{
     color:white;
@@ -106,7 +115,7 @@ aside{
     flex-direction: row;
     justify-content: space-between;
     padding-top:20px;
-    padding-left:20px;
+    padding-left:10px;
 }
 
 .song-and-artist-play-bar{
@@ -114,18 +123,22 @@ aside{
 }
 
 .play-bar-icons{
-    height:18px;
+    height:14px;
     filter: grayscale(100%) invert(100%);
     -webkit-filter: grayscale(100%) invert(100%);
     -moz-filter: grayscale(100%) invert(100%);
     margin-right:10px;
+  
 }
 
 .play-bar-icons-big{
-    height:35px;
+    margin-top: 0.8em;
+    height:20px;
     margin-right:40px;
 }
-
+.right{
+    margin-top: 1.5em;
+}
 .play-button{
     height:40px;
     margin-right:40px;
@@ -142,6 +155,15 @@ aside{
     display:flex;
     justify-content: center;
 }
+.play-line-div p{
+    margin-top: 1.2em;
+}
+.play-line-div p:nth-of-type(1){
+    margin-right: 3px;
+}
+.play-line-div p:nth-of-type(2){
+    margin-left: 3px;
+}
 .volume-line{
     background-color: #555555;
     height:5px;
@@ -150,7 +172,7 @@ aside{
 
 .volume{
     display:flex;
-    margin-right:30px;
+    margin-bottom: 3em;
 
 }
 

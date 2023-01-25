@@ -38,7 +38,7 @@ span:first-of-type{
     color:black
 }
 .buttons{
-    row-gap: 10px;
+    row-gap: 15px;
     font-family: Gotham-Bold;
 
 }
@@ -67,7 +67,8 @@ span:first-of-type{
 }
 
 .row hr{
-    width:180px
+    width:180px;
+   
 }
 input[type="email"],input[type="password"]{
    width:450px;
@@ -128,4 +129,8 @@ form button{
     color:grey;
     font-family: "Gotham-Light";
     font-size: 12px;
+}
+.check{
+    width:450px
+    
 }

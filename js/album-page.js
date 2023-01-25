@@ -5,7 +5,7 @@ const id = params.get("id")
 console.log(id)
 
 
-console.log(id)
+
 let allSongs=[]
 const options = {
 	method: 'GET',
@@ -53,13 +53,14 @@ const getAlbum= async (id)=>{
 
  if(res.ok){
     let time=0
-        console.log(artist)
       
        let tbody=document.querySelector("tbody")
        let tr
+       let music=[]
+       console.log(music)
        for(i=0;i<artist.tracks.data.length;i++){
        
-        let musicPlaying=[]
+        
          tr=document.createElement("tr")
          
          let track=artist.tracks.data[i]
@@ -68,22 +69,32 @@ const getAlbum= async (id)=>{
          tr.onclick=function play(){
           let audio=new Audio()
           audio.src=track.preview
-          audio.play()
-          
+          music.push(audio)
+          music[0].play()
          
-        }
+          if(music!=[]){
+            music[0].pause()
+            music.unshift(audio)  
+            music[0].play()
+            console.log(music[0])
+          }
+         
+         }
+   
+
+        searchQuery=track.artist.name
         tr.innerHTML=`
         <th scope="row" class="play-list-text">${i+1}</th>
         <td class="white-text no-space-left">${track.title}
-       <a href="artist.html?q=${track.artist.name}"><p class="play-list-text">${track.artist.name}</p></a></td>
+       <a href="artist.html?q=${searchQuery}"><p class="play-list-text">${track.artist.name}</p></a></td>
         <td></td>
         <td class="play-list-text">${mins}</td>
 
         `
-        searchQuery=track.artist.name
-        console.log(searchQuery)
+    
+      
         allSongs.push(track.preview)
-        console.log(allSongs)
+    
   time+=artist.tracks.data[i].duration
 
         tbody.appendChild(tr)
@@ -102,12 +113,14 @@ const getAlbum= async (id)=>{
         <h3 class="white-text">Album</h3>
         <h1 class="white-text">${artist.title}</h1>
         <img class="small" src="${artist.cover_small}" alt="">
-       <a href="artist.html?q=${artist.artist.name}" ><b>${artist.artist.name}</b></a>
+       <a href="artist.html?q=${artist.artist.name}"><b>${artist.artist.name}</b></a>
         <small class="play-list-text">•${year}</small>
         <small class="play-list-text">•${artist.tracks.data.length} songs,</small>
         <small class="play-list-text">Duration:${albumTime}</small>
       </div>
        ` 
+       console.log(artist.artist.name)
+
    
   
       }
@@ -121,4 +134,4 @@ const getAlbum= async (id)=>{
 
 
 
-window.onload=getAlbum("1312875")
+window.onload=getAlbum(id)

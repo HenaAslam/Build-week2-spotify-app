@@ -1,4 +1,4 @@
-p{
+.main-content p{
     font-size: 13px;
 }
 
@@ -79,7 +79,9 @@ background-color: rgb(38, 39, 41);
 tr:hover .play-list-text{
     color: white;
 }
-
+tr p:hover{
+    text-decoration: underline;
+}
  
   @media screen and (max-width: 1000px){
     .col-lg-9{

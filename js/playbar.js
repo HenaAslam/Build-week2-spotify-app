@@ -67,7 +67,7 @@ createPlayBar= ()=>{
         <img src=${currentSong.album.cover_small} id="current-album-cover">
         <div class="">
             <p>${currentSong.title}</p>
-            <p>${currentSong.artist.name}</p>
+            <p class="play-list-text" >${currentSong.artist.name}</p>
         </div>
         <img src="./assets/icons/suit-heart.svg" class="play-bar-icons">
     </div>
@@ -85,7 +85,7 @@ createPlayBar= ()=>{
             <p>${parseInt(currentSong.duration/60)}:${currentSong.duration%60}<p>
         </div>
     </div>
-    <div class="col-2 volume align-items-center d-flex">
+    <div class="col-2 volume align-items-center d-flex right">
         <div>
             <img src="./assets/icons/playlist.png" class="play-bar-icons">
             <img src="./assets/icons/pc-display.svg" class="play-bar-icons">

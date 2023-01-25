@@ -1,11 +1,11 @@
-const url="https://striveschool-api.herokuapp.com/api/deezer/album/75621062"
+const url="https://striveschool-api.herokuapp.com/api/deezer/album/"
 
 const params = new URLSearchParams(location.search)
 const id = params.get("id")
 console.log(id)
 
 
-console.log(id)
+
 let allSongs=[]
 const options = {
 	method: 'GET',
@@ -46,42 +46,53 @@ return ret
 }
 
 
-const getAlbum= async (albumID=id)=>{
+const getAlbum= async (id)=>{
     try{
-  let res= await fetch(url+albumID,{options})
+  let res= await fetch(url+id,{options})
   let artist= await res.json()
 
  if(res.ok){
     let time=0
-        console.log(artist)
       
        let tbody=document.querySelector("tbody")
        let tr
+       let music=[]
+       console.log(music)
        for(i=0;i<artist.tracks.data.length;i++){
        
-        let musicPlaying=[]
+        
          tr=document.createElement("tr")
          
          let track=artist.tracks.data[i]
          let duration=track.duration
          let mins=timeConvert(duration)
-         tr.onclick=function play(){
-          let audio=new Audio()
-          audio.src=track.preview
-          audio.play()
-          
-         
-        }
+        //  tr.onclick=function play(){
+        //   let audio=new Audio()
+        //   audio.src=track.preview
+        //   music.push(audio)
+        //   music[0].play()
+        //   if(music!=[]){
+        //     music[0].pause()
+        //     music.unshift(audio)  
+        //     music[0].play()
+        //     console.log(music[0])
+        //   }
+        //  }
+   
+
+        searchQuery=track.artist.name
         tr.innerHTML=`
         <th scope="row" class="play-list-text">${i+1}</th>
         <td class="white-text no-space-left">${track.title}
-        <p class="play-list-text">${track.artist.name}</p></td>
+       <a href="artist.html?q=${searchQuery}"><p class="play-list-text">${track.artist.name}</p></a></td>
         <td></td>
         <td class="play-list-text">${mins}</td>
 
         `
+    
+      
         allSongs.push(track.preview)
-        console.log(allSongs)
+    
   time+=artist.tracks.data[i].duration
 
         tbody.appendChild(tr)
@@ -100,12 +111,14 @@ const getAlbum= async (albumID=id)=>{
         <h3 class="white-text">Album</h3>
         <h1 class="white-text">${artist.title}</h1>
         <img class="small" src="${artist.cover_small}" alt="">
-        <b>${artist.artist.name}</b>
+       <a href="artist.html?q=${artist.artist.name}"><b>${artist.artist.name}</b></a>
         <small class="play-list-text">•${year}</small>
         <small class="play-list-text">•${artist.tracks.data.length} songs,</small>
         <small class="play-list-text">Duration:${albumTime}</small>
       </div>
        ` 
+       console.log(artist.artist.name)
+
    
   
       }

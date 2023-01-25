@@ -1,4 +1,4 @@
-const url="https://striveschool-api.herokuapp.com/api/deezer/album/75621062"
+const url="https://striveschool-api.herokuapp.com/api/deezer/album/"
 
 const params = new URLSearchParams(location.search)
 const id = params.get("id")
@@ -46,9 +46,9 @@ return ret
 }
 
 
-const getAlbum= async (albumID=id)=>{
+const getAlbum= async (id)=>{
     try{
-  let res= await fetch(url+albumID,{options})
+  let res= await fetch(url+id,{options})
   let artist= await res.json()
 
  if(res.ok){
@@ -75,11 +75,13 @@ const getAlbum= async (albumID=id)=>{
         tr.innerHTML=`
         <th scope="row" class="play-list-text">${i+1}</th>
         <td class="white-text no-space-left">${track.title}
-        <p class="play-list-text">${track.artist.name}</p></td>
+       <a href="artist.html?q=${track.artist.name}"><p class="play-list-text">${track.artist.name}</p></a></td>
         <td></td>
         <td class="play-list-text">${mins}</td>
 
         `
+        searchQuery=track.artist.name
+        console.log(searchQuery)
         allSongs.push(track.preview)
         console.log(allSongs)
   time+=artist.tracks.data[i].duration
@@ -100,7 +102,7 @@ const getAlbum= async (albumID=id)=>{
         <h3 class="white-text">Album</h3>
         <h1 class="white-text">${artist.title}</h1>
         <img class="small" src="${artist.cover_small}" alt="">
-        <b>${artist.artist.name}</b>
+       <a href="artist.html?q=${artist.artist.name}" ><b>${artist.artist.name}</b></a>
         <small class="play-list-text">•${year}</small>
         <small class="play-list-text">•${artist.tracks.data.length} songs,</small>
         <small class="play-list-text">Duration:${albumTime}</small>
@@ -119,4 +121,4 @@ const getAlbum= async (albumID=id)=>{
 
 
 
-window.onload=getAlbum(id)
+window.onload=getAlbum("1312875")

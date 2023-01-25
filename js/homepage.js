@@ -27,29 +27,28 @@ const recentlyPlayed=(array)=>{
     let arr=array.slice(0,5)
     arr.forEach(element => {
         rowNode.innerHTML+=`
-        <div class="col mb-5">
-        <div class="card h-100" style="position:relative" >
-        <a href='./referencetopassalbumid.html?id=${element.album.id}'>
-           <img src="${element.album.cover_medium}" class="card-img-top mt-2 mb-2 px-2" alt="...">
-          
-           <div class="play-btn d-none d-lg-block">
-              <div class="triangle"></div>
-          </div>
-         
-        
-           <div class="card-body d-flex flex-column justify-content-center">
-              <h5 class="card-title text-white">${element.title}</h5>
-             </a>
+            <div class="col mb-5">
+                <div class="card h-100" style="position:relative" >
+                    <a href='./referencetopassalbumid.html?id=${element.album.id}'>
+                        <img src="${element.album.cover_medium}" class="card-img-top mt-2 mb-2 px-2" alt="...">
+                        
+                        <div class="play-btn d-none d-lg-block">
+                            <div class="triangle"></div>
+                        </div>
+                    
+                    
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h5 class="card-title text-white">${element.title}</h5>
+                    </a>    
 
-             <a href='./referencetopassartistid.html?id=${element.artist.id}'>
-              <span class="card-text text-white" >${element.artist.name}</span>
-              </a>
-          
+                        <a href='./referencetopassartistid.html?id=${element.artist.id}'>
+                            <span class="card-text text-white" >${element.artist.name}</span>
+                        </a>
+                    
+                    </div>
+                </div>
             </div>
-          </div>
-          </div>
-          </a>
-          `
+        `
     });
  
 }
@@ -58,28 +57,27 @@ const showstoTry=(array)=>{
  let arr=array.slice(15,20)
     arr.forEach(element => {
         rowNode.innerHTML+=`
-        <div class="col mb-5">
-        <div class="card h-100" style="position:relative" >
-        <a href='./referencetopassalbumid.html?id=${element.album.id}'>
-           <img src="${element.album.cover_medium}" class="card-img-top mt-2 mb-2 px-2" alt="...">
-          
-           <div class="play-btn d-none d-lg-block">
-              <div class="triangle"></div>
-          </div>
-         
-        
-           <div class="card-body d-flex flex-column justify-content-center">
-              <h5 class="card-title text-white">${element.title}</h5>
-             </a>
+            <div class="col mb-5">
+                <div class="card h-100" style="position:relative" >
+                    <a href='./referencetopassalbumid.html?id=${element.album.id}'>
+                        <img src="${element.album.cover_medium}" class="card-img-top mt-2 mb-2 px-2" alt="...">
+                    
+                        <div class="play-btn d-none d-lg-block">
+                            <div class="triangle"></div>
+                        </div>
+                    
+                    
+                        <div class="card-body d-flex flex-column justify-content-center">
+                            <h5 class="card-title text-white">${element.title}</h5>
+                    </a>
 
-             <a href='./referencetopassartistid.html?id=${element.artist.id}'>
-              <span class="card-text text-white" >${element.artist.name}</span>
-              </a>
-          
+                        <a href='./referencetopassartistid.html?id=${element.artist.id}'>
+                            <span class="card-text text-white" >${element.artist.name}</span>
+                        </a>
+                
+                        </div>
+                </div>
             </div>
-          </div>
-          </div>
-          </a>
           `
     });
  

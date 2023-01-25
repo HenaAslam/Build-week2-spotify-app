@@ -47,10 +47,11 @@ return ret
 
 
 const getAlbum= async (id)=>{
+  console.log(id)
     try{
   let res= await fetch(url+id,{options})
   let artist= await res.json()
-
+  console.log(artist)
  if(res.ok){
     let time=0
       
@@ -133,3 +134,7 @@ const getAlbum= async (id)=>{
 
 
 window.onload=getAlbum(id)
+
+
+
+

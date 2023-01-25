@@ -67,7 +67,7 @@ const renderPage = (songs) =>{
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                    <img class="d-block artist-cover" src="${songs[0].artist.picture_big}" alt="First slide">
+                    <img class="d-block artist-cover" src="${songs[0].album.cover_big}" alt="First slide">
                     </div>
                 </div>
             </div>

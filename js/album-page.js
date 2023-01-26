@@ -14,6 +14,7 @@ const options = {
 		'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
 	}
 }
+toggleSearch = ()=>{}
 function timeConvert(duration){
   var hrs = ~~(duration / 3600);
   var mins = ~~((duration % 3600) / 60);

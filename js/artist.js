@@ -6,16 +6,17 @@ let searchQuery;
 //const params = new URLSearchParams(location.search);
 let topAlbums = [];
 let topAlbumsTitles=[];
-
+let ArtistName;
+let topSongs=[];
 const getArtistData = async()=>{
     try {
         let res = await fetch(artistURL+artistId)
         if(res.ok){
             res = await res.json();
             console.log(res);
-            let artistName=res.name;
-            artistName = artistName.replaceAll(' ', '+')
-            searchQuery=artistName.toLowerCase();
+            artistName=res.name;
+            artistNamePlus = artistName.replaceAll(' ', '+')
+            searchQuery=artistNamePlus.toLowerCase();
             getArtist()
         }
     }catch(error){
@@ -37,7 +38,62 @@ const getArtist = async()=>{
         console.log(error);
     }
 }
+toggleSearch = ()=>{}
 
+const topFiveSongs= async()=>{
+    try {
+        let res = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=50`)
+        if(res.ok){
+            res = await res.json();
+            populateTable(res.data);
+        }
+    }catch(error){
+        console.log(error);
+    }
+}
+const addDiscography = ()=>{
+    discography = document.getElementById("discography")
+    let arr=topAlbums.slice(0,6);
+    discography.innerHTML+=``
+    arr.forEach(element => {
+        discography.innerHTML+=`
+            <div class="discography-card col-lg-2 col-md-4 col-6 mb-5">
+                <div class="card" style="position:relative" >
+                    <a href='./album-page.html?id=${element.id}'>
+                        <img src="${element.image}" class="card-img-top mt-2 mb-2 px-2" alt="...">
+                        
+                        <div class="play-btn d-none d-lg-block">
+                            <div class="triangle"></div>
+                        </div>
+                    
+                    <div class="card-body d-flex flex-column justify-content-center">
+                        <h5 class="card-title text-white">${element.title}</h5>
+                    </a>
+                        <a href='./artist.html?id=${element.artist.id}'>
+                            <span class="card-text text-white" >${element.artist}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        `
+    })
+}
+
+const populateTable=(songs)=>{
+    console.log("populate table",songs);
+    tableContents = document.getElementById("table-contents");
+    for(let i=0;i<5;i++){
+        tableContents.innerHTML+=`
+        <tr onclick="selectRow(this, ${i})">
+            <th scope="row" class="grey-text align-middle">${i}</th>
+            <td><img class="table-image" src=${songs[i].album.cover_small}>${songs[i].title}</td>
+            <td class="grey-text align-middle">100,000</td>
+            <td class="grey-text align-middle">${parseInt(songs[i].duration/60)}:${songs[i].duration%60}</td>
+      </tr>
+        `
+        topSongs.push(songs[i])
+    }
+}
 const getTopAlbums=(songs)=>{
     songs.forEach(song =>{
         if(topAlbumsTitles.indexOf(song.album.title)===-1){
@@ -52,13 +108,15 @@ const getTopAlbums=(songs)=>{
     })
 }
 let rows;
-const selectRow=(row)=>{
+const selectRow=(row, index)=>{
     rows = document.getElementsByTagName("tr");
     
     for(let i=0;i<rows.length;i++){
         rows[i].classList.remove("selected");
     }
     row.classList.add("selected")
+    currentSong=topSongs[index];
+    createPlayBar();
 }
 const mainContent = document.getElementById("main-content");
 const renderPage = (songs) =>{
@@ -115,7 +173,7 @@ const renderPage = (songs) =>{
                             <img class="artist-pick-image" src="${songs[0].album.cover_medium}">
                         </div>
                         <div class="artist-pick-text">
-                            <p class="grey-text text-gotham-light">Posted by ${songs[0].artist.name}</p>
+                            <p class="grey-text text-gotham-light">Posted by ${artistName}</p>
                             <div class="artist-pick-line-height">
                                 <p><strong>${songs[0].artist.name} Best Of</strong></p>
                                 <p class="grey-text text-gotham-light">Playlist</p>
@@ -129,41 +187,7 @@ const renderPage = (songs) =>{
             </div>
         </div>
     `
-    tableContents = document.getElementById("table-contents");
-    for(let i=0;i<5;i++){
-        tableContents.innerHTML+=`
-        <tr onclick="selectRow(this)">
-            <th scope="row" class="grey-text align-middle">${i}</th>
-            <td><img class="table-image" src=${songs[i].album.cover_small}>${songs[i].title}</td>
-            <td class="grey-text align-middle">100,000</td>
-            <td class="grey-text align-middle">${parseInt(songs[i].duration/60)}:${songs[i].duration%60}</td>
-      </tr>
-        `
-    }
-    discography = document.getElementById("discography")
-    let arr=topAlbums.slice(0,6);
-    discography.innerHTML+=``
-    arr.forEach(element => {
-        discography.innerHTML+=`
-            <div class="discography-card col-lg-2 col-md-4 col-6 mb-5">
-                <div class="card" style="position:relative" >
-                    <a href='./album-page.html?id=${element.id}'>
-                        <img src="${element.image}" class="card-img-top mt-2 mb-2 px-2" alt="...">
-                        
-                        <div class="play-btn d-none d-lg-block">
-                            <div class="triangle"></div>
-                        </div>
-                    
-                    <div class="card-body d-flex flex-column justify-content-center">
-                        <h5 class="card-title text-white">${element.title}</h5>
-                    </a>
-                        <a href='./artist.html?id=${element.artist.id}'>
-                            <span class="card-text text-white" >${element.artist}</span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        `
-    })
+    topFiveSongs();
+    addDiscography();
 }
 getArtistData();

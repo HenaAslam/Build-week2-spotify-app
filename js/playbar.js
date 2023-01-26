@@ -5,7 +5,12 @@ let album=[];
 let shuffleAlbum=[];
 let shuffle = false;
 let queueOfSongs=[];
+let songIsPlaying=false;
+let audio=new Audio()
+let currentVolume=0.5
 let playUrl="https://striveschool-api.herokuapp.com/api/deezer/search?q=pink+floyd"
+
+
 getSongs = async()=>{
     try{
         let res = await fetch(playUrl, {
@@ -16,21 +21,32 @@ getSongs = async()=>{
             currentSong=res.data[0];
             currentSongIndex = 0;
             album = res.data;
+            console.log(album[0].preview)
+            
             createPlayBar();
         }
     }catch(error){
         console.log(error);
     }
 }
+
+
 nextSong=()=>{
     if(shuffle){
         shuffleAlbumIndex+=1;
         currentSong = shuffleAlbum[shuffleAlbumIndex];
         queueOfSongs.push(currentSong);
+       
     }else{
         currentSongIndex+=1;
         currentSong = album[currentSongIndex];
         queueOfSongs.push(currentSong);
+        console.log(currentSong)
+        if(songIsPlaying==true){
+        playSong()
+
+
+        } 
     }
     createPlayBar();
 }
@@ -42,6 +58,7 @@ previousSong=()=>{
             shuffleAlbumIndex-=1;
             currentSong = queueOfSongs[queueOfSongs.length-1];
             queueOfSongs.pop();
+           
         }
     }else{
         if(currentSongIndex===0){}
@@ -49,7 +66,14 @@ previousSong=()=>{
             currentSongIndex-=1;
             currentSong = album[currentSongIndex];
             queueOfSongs.pop();
+            if(songIsPlaying==true){
+            playSong()
+            // img.src="./assets/icons/play-circle-fill.svg"
+
+            }
+        
         }
+
     }
     createPlayBar();
 }
@@ -74,7 +98,7 @@ createPlayBar= ()=>{
     <div class="col-5 middle-of-play-bar">
         <div class="song-icons d-flex justify-content-center">
             <img src="./assets/icons/shuffle.svg" class="play-bar-icons play-bar-icons-big" id="shuffle-icon" onclick="toggleShuffle()">
-            <img src="./assets/icons/skip-backward.svg" class="play-bar-icons play-bar-icons-big" onclick="previousSong()">
+            <img src="./assets/icons/skip-backward.svg" class="play-bar-icons play-bar-icons-big play" onclick="previousSong()">
             <img src="./assets/icons/play-circle-fill.svg" class="play-bar-icons play-button" onclick="playOrPauseSong(this)">
             <img src="./assets/icons/skip-forward.svg" class="play-bar-icons play-bar-icons-big" onclick="nextSong()">
             <img src="./assets/icons/arrow-counterclockwise.svg" class="play-bar-icons play-bar-icons-big">
@@ -89,9 +113,10 @@ createPlayBar= ()=>{
         <div>
             <img src="./assets/icons/playlist.png" class="play-bar-icons">
             <img src="./assets/icons/pc-display.svg" class="play-bar-icons">
-            <img src="./assets/icons/volume-up.svg" class="play-bar-icons">
+            <img src="./assets/icons/volume-up.svg" class="play-bar-icons" onclick=muteSound()>
         </div>
         <div class="volume-line"></div>
+        
     </div>
 `
 }
@@ -99,11 +124,48 @@ createPlayBar= ()=>{
 playOrPauseSong= (img)=>{
     if(img.src.includes("/assets/icons/play-circle-fill.svg")){
         img.src="./assets/icons/pause-circle-fill.svg"
+    
+        playSong()
+        
     }else{
+       
         img.src="./assets/icons/play-circle-fill.svg"
+        pauseSong()
+        
     }
 }
+const playSong=()=>{
+    songIsPlaying=true
+    audio.src=currentSong.preview
+    audio.volume=currentVolume
 
+    audio.play()
+   
+    // audio.loop()
+    s=audio.src
+    console.log(s.duration)
+}
+const pauseSong=()=>{
+    songIsPlaying=false
+    audio.src=currentSong.preview
+   
+
+    audio.pause()
+}
+const muteSound= ()=>{
+    if(currentVolume==0.5){
+        audio.src=currentSong.preview
+        currentVolume=0
+        audio.volume=currentVolume
+   console.log(audio.volume)
+    
+    }else if(currentVolume==0){
+        currentVolume=0.5
+      audio.volume=currentVolume
+      console.log(audio.volume)
+      audio.play()
+    }
+}
 toggleShuffle=()=>{
     let shuffleIcon= document.getElementById("shuffle-icon");
     if(shuffle){
@@ -115,6 +177,7 @@ toggleShuffle=()=>{
         shuffleIcon.classList.add("shuffle-on")
     }
 }
+
 
 function shuffleArray(array) {
     let currentIndex = array.length,  randomIndex;

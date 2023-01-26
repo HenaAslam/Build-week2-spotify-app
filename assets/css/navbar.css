@@ -93,7 +93,8 @@ aside p:hover{
 
 #top-playlists{
     font-size: 15px;
-    font-family: Gotham;
+    font-family: "Gotham-Light";
+
     padding-bottom: 25px;
 }
 
@@ -194,7 +195,7 @@ aside p:hover{
 }
 
 /* width */
-::-webkit-scrollbar {
+::-webkit-scrollbar{
     width: 10px;
     background-color: #000000;
   }

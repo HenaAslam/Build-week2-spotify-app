@@ -48,7 +48,6 @@ return ret
 
 
 const getAlbum= async (id)=>{
-  console.log(id)
     try{
   let res= await fetch(url+id,{options})
   let artist= await res.json()
@@ -72,7 +71,7 @@ const getAlbum= async (id)=>{
         //   let audio=new Audio()
         //   audio.src=track.preview
         //   music.push(audio)
-        //   music[0].play()
+          // music[0].play()
         //   if(music!=[]){
         //     music[0].pause()
         //     music.unshift(audio)  
@@ -93,7 +92,7 @@ const getAlbum= async (id)=>{
         `
     
       
-        allSongs.push(track.preview)
+        console.log(track.preview.duration)
     
   time+=artist.tracks.data[i].duration
 

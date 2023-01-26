@@ -132,7 +132,7 @@ const userInfo=()=>{
         
      }
     node.innerHTML+=`
-        <div class="mt-2 row search-row">
+        <div class="mt-2 ml-3 mb-3 row search-row d-flex align-items-center">
             <i class="bi bi-chevron-left mr-2" onclick="backHistory()" ></i>
             <i class="bi bi-chevron-right ml-2" onclick="forwardHistory()"></i>
             <div class="input-group mb-3 search-bar hidden" id="search-bar">
@@ -140,7 +140,7 @@ const userInfo=()=>{
             </div>
     </div>
 
-    <div class="dropdown">
+    <div class="dropdown d-flex align-items-center">
     <button class="btn btn-secondary dropdown-toggle rounded-pill truncate" type="button" data-toggle="dropdown" aria-expanded="false">
     <img src=${check.img}>
     ${check.profilename}

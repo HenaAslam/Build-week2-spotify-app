@@ -161,7 +161,7 @@ a{
  #user-info i{
   background: rgba(180, 159, 159, 0.3);
   border-radius: 50%;
-  padding:8px;
+  padding:10px;
   color:white
  }
  #user-info i:hover{
@@ -177,8 +177,8 @@ a{
 }
 
 #user-info img{
-height:25px;
-width:25px;
+height:30px;
+width:30px;
 border-radius: 50%;
 }
 #user-info .dropdown-menu{
@@ -242,7 +242,7 @@ aside{
   background: rgb(76,76,74);
   background: linear-gradient(180deg, rgba(76,76,74,1) 0%);
   height:6vh;
-  width:87vw;
+  width:88vw;
 }
 @media screen and (max-width: 880px) {
   .search-bar{
@@ -252,7 +252,8 @@ aside{
  @media screen and (max-width: 1900px) {
   #user-info{
     width:85vw;
-    height:7vh;
+    height:9vh;
+
   }
 } 
 h3:first-of-type{

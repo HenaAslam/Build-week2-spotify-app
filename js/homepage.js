@@ -132,9 +132,9 @@ const userInfo=()=>{
         
      }
     node.innerHTML+=`
-        <div class="mt-2 row search-row">
-            <i class="bi bi-chevron-left mr-2" onclick="backHistory()" ></i>
-            <i class="bi bi-chevron-right ml-2" onclick="forwardHistory()"></i>
+        <div class="m-3 row search-row d-flex align-items-center ">
+            <i class="bi bi-chevron-left mr-2 p-2" onclick="backHistory()" ></i>
+            <i class="bi bi-chevron-right ml-2 p-2" onclick="forwardHistory()"></i>
             <div class="input-group mb-3 search-bar hidden" id="search-bar">
                 <input type="text" class="form-control search-input" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
             </div>
@@ -215,7 +215,5 @@ function backHistory(){
 }
 
 function forwardHistory(){
-    
-    console.log("hell")
     window.history.forward();
 }

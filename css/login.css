@@ -65,11 +65,12 @@ span:first-of-type{
 .buttons button:hover{
     border:1px solid black
 }
-
-.row hr{
-    width:180px;
-   
+.or div:first-of-type, .or div:last-of-type{
+    border-bottom:1px solid rgb(216, 205, 205);
+    width: 190px;
+    margin-bottom: 10px;
 }
+
 input[type="email"],input[type="password"]{
    width:450px;
    height:50px;

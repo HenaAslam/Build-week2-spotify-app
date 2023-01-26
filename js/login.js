@@ -22,10 +22,11 @@ const onLoadActions=()=>{
     <button type="button" class="btn btn-dark rounded-pill "><i class="bi bi-apple pr-2"></i>CONTINUE WITH APPLE</button>
     <button type="button" class="btn btn-light rounded-pill "><i class="bi bi-google pr-2"></i>CONTINUE WITH GOOGLE</button>
     </div>
-    <div class="row py-2">
-    <div class="col"><hr></div>
-    <div class="col">OR</div>
-    <div class="col"><hr></div>
+    
+    <div class="row py-3 or">
+    <div class="col-5"></div>
+    <div class="col-2 text-center">OR</div>
+    <div class="col-5"></div>
     </div>
    
   <div class="form-group">
@@ -57,6 +58,24 @@ const onLoadActions=()=>{
     
 
 }
+{/* <div class="row py-2">
+    <div class="col-4"><hr></div>
+    <div class="col-4 text-center">OR</div>
+    <div class="col-4"><hr></div>
+    </div> */}
+const enterToLogin=()=>{
+  const input = document.querySelector("#pw");
+  
+  input.addEventListener("keypress", function(event) {
+    if (event.key === "Enter") {
+      event.preventDefault();
+      document.querySelector('#login').click();
+    }
+  });
+}
+
+
+
 
 const correctPassword=()=>{
     
@@ -66,6 +85,14 @@ const correctPassword=()=>{
 
     let email=document.querySelector("#email").value
    let pass=document.querySelector("#pw").value
+
+
+   btn.classList.add("disabled")
+   setTimeout(() => {
+    btn.classList.remove("disabled")
+         }, 500);
+
+
 //    console.log(email,pass)
     if(email==='' || pass===''){
   
@@ -96,6 +123,7 @@ const correctPassword=()=>{
 
 window.onload=()=>{
     onLoadActions()
+    enterToLogin()
   
 }
 

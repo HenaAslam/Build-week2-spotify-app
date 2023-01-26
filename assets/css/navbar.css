@@ -82,6 +82,7 @@ aside p:hover{
 
 .play-list-text{
     color:#6c6c6c;
+    cursor:pointer;
 }
 
 .aside-hr{
@@ -215,3 +216,12 @@ aside p:hover{
     background: #555; 
   }
 
+.homepage-click{
+    text-decoration: none;
+    color:#6c6c6c;
+}
+
+.homepage-click:hover{
+    color:#6c6c6c;
+    text-decoration:none;
+}

@@ -14,6 +14,17 @@ const options = {
 		'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
 	}
 }
+const selectRowAlbum=(row, index)=>{
+  rows = document.getElementsByTagName("tr");
+  
+  for(let i=0;i<rows.length;i++){
+      rows[i].classList.remove("selected");
+  }
+  row.classList.add("selected")
+  currentSong=allSongs[index];
+  console.log("current song",currentSong)
+  createPlayBar();
+}
 toggleSearch = ()=>{}
 function timeConvert(duration){
   var hrs = ~~(duration / 3600);
@@ -50,20 +61,19 @@ return ret
 const getAlbum= async (id)=>{
     try{
   let res= await fetch(url+id,{options})
-  let artist= await res.json()
-  console.log(artist)
  if(res.ok){
     let time=0
-      
+    let artist= await res.json();
+    console.log("artist->",artist);
        let tbody=document.querySelector("tbody")
        let tr
        let music=[]
        console.log(music)
        for(i=0;i<artist.tracks.data.length;i++){
-       
+          allSongs.push(artist.tracks.data[i]);
         
          tr=document.createElement("tr")
-         
+         tr.setAttribute("onclick",`selectRowAlbum(this,${i})`)
          let track=artist.tracks.data[i]
          let duration=track.duration
          let mins=timeConvert(duration)
@@ -85,7 +95,7 @@ const getAlbum= async (id)=>{
         tr.innerHTML=`
         <th scope="row" class="play-list-text">${i+1}</th>
         <td class="white-text no-space-left">${track.title}
-       <a href="artist.html?id=${searchQuery}"><p class="play-list-text">${track.artist.name}</p></a></td>
+       <p class="play-list-text"><a href="artist.html?id=${searchQuery}" style="color:#6c6c6c; text-decoration:none">${track.artist.name}</a></p></td>
         <td></td>
         <td class="play-list-text">${mins}</td>
 

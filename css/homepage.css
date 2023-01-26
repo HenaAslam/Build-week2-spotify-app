@@ -227,8 +227,9 @@ aside{
 
 .search-bar{
   position: absolute;
-  width: 300px;
+  width: 500px;
   left:100px;
+  border-radius:30px;
 }
 
 .search-row{

@@ -115,3 +115,23 @@ aside{
 .card:hover{
   background-color: rgb(71, 66, 66);
 }
+
+.hidden{
+  display: none;
+}
+
+.search-bar{
+  position: absolute;
+  width: 300px;
+  left:100px;
+}
+
+.search-row{
+  position:relative;
+}
+
+@media screen and (max-width: 880px) {
+  .search-bar{
+    display:none;
+  }
+}

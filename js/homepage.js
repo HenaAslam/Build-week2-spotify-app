@@ -1,9 +1,10 @@
-let albumArray=[]
+let albumArray=[];
 
 
 const goodMorning=(array)=>{
     let rowNode=document.getElementById("goodmorning")
     let arr=array.slice(5,15)
+    rowNode.innerHTML="";
     arr.forEach(element => {
         rowNode.innerHTML+=     `<a href='./album-page.html?id=${element.album.id}'>
         <div class="col">
@@ -25,6 +26,7 @@ const goodMorning=(array)=>{
 const recentlyPlayed=(array)=>{
     let rowNode=document.getElementById('recentlyplayed')
     let arr=array.slice(0,5)
+    rowNode.innerHTML="";
     arr.forEach(element => {
         rowNode.innerHTML+=`
         <div class="col mb-5">
@@ -52,6 +54,7 @@ const recentlyPlayed=(array)=>{
 }
 const showstoTry=(array)=>{
     let rowNode=document.getElementById("showstotry")
+    rowNode.innerHTML="";
  let arr=array.slice(15,20)
     arr.forEach(element => {
         rowNode.innerHTML+=`
@@ -135,9 +138,12 @@ window.onload=()=>{
 
 const userInfo=()=>{
     let node=document.getElementById("user-info")
-    node.innerHTML+=`<div class="arrows">
+    node.innerHTML+=`<div class="arrows row search-row">
                 <i class="bi bi-chevron-left mr-2" ></i>
                 <i class="bi bi-chevron-right ml-2" ></i>
+                <div class="input-group mb-3 search-bar hidden" id="search-bar">
+                    <input type="text" class="form-control search-input" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
     </div>
     <span class="badge badge-pill badge-dark truncate pt-1" >
     <img src="https://pbs.twimg.com/media/EFIv5HzUcAAdjhl.png">
@@ -145,6 +151,22 @@ const userInfo=()=>{
     `
 }
 userInfo()
+
+const searchDiv = document.querySelector('#search-bar');
+const searchInput = document.querySelector(".search-input");
+const toggleSearch=()=>{
+    searchDiv.classList.remove("hidden");
+    searchInput.addEventListener("keypress", function(event) {
+        // If the user presses the "Enter" key on the keyboard
+        if (event.key === "Enter") {
+          event.preventDefault();
+          console.log(searchInput.value)
+          fetchSongs(searchInput.value)
+        }
+      });
+}
+
+
 //dont need this anymore
 // const albumPage=(array)=>{
 //     let cards=document.querySelectorAll(".card")

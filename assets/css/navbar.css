@@ -225,3 +225,21 @@ aside p:hover{
     color:#6c6c6c;
     text-decoration:none;
 }
+input{
+    -webkit-appearance: none;
+    overflow: hidden;
+}
+#volume-line{
+    width: 100% !important;
+    margin-top: 1.2em;
+}
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    border: none;
+    height: 16px;
+    width: 16px;
+    border-radius: 50%;
+    background: rgb(236, 234, 230);
+    margin-top: -4px;
+ }
+ 

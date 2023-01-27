@@ -90,8 +90,8 @@ createPlayBar= ()=>{
     <div class="col-3 song-and-artist-play-bar">
         <img src=${currentSong.album.cover_small} id="current-album-cover">
         <div class="song-and-artist-play">
-            <p>${currentSong.title}</p>
-            <p class="play-list-text" >${currentSong.artist.name}</p>
+            <p class="current-song-text">${currentSong.title}</p>
+            <p class="current-artist-text play-list-text" >${currentSong.artist.name}</p>
         </div>
         <img src="./assets/icons/suit-heart.svg" class="play-bar-icons heart-down">
     </div>

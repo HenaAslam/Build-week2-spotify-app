@@ -70,7 +70,6 @@ aside p:hover{
     margin-top:1px;
 }
 .play-bar p{
-    font-size: 11px;  
     margin-bottom: 0;
 }
 
@@ -227,9 +226,10 @@ aside p:hover{
 }
 
 .song-and-artist-play{
-    margin-top:10px;
+    margin-top:5px;
     margin-left:20px;
     margin-right:20px;
+    
 }
 
 .heart-down{
@@ -239,4 +239,12 @@ aside p:hover{
 
 #pause{
     cursor:pointer;
+}
+
+.current-song-text{
+    font-size: 15px;
+}
+
+.current-artist-text{
+    font-size:13px;
 }

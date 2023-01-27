@@ -225,3 +225,18 @@ aside p:hover{
     color:#6c6c6c;
     text-decoration:none;
 }
+
+.song-and-artist-play{
+    margin-top:10px;
+    margin-left:20px;
+    margin-right:20px;
+}
+
+.heart-down{
+    margin-top:15px;
+    height:18px;
+}
+
+#pause{
+    cursor:pointer;
+}

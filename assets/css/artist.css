@@ -150,3 +150,10 @@ tr{
 .not-play{
     margin-top:15px;
 }
+
+.triangle {
+    margin: auto;
+    border-style: solid;
+    border-width: 7px 0 7px 12px;
+    border-color: transparent transparent transparent #090e14;
+}

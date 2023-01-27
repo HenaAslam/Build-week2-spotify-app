@@ -114,16 +114,32 @@ const getTopAlbums=(songs)=>{
     })
 }
 let rows;
+
+const toggleArtistPlayPause=(symbol)=>{
+    console.log("symbol",symbol);
+    if(symbol.id==="pause"){
+        symbol.parentNode.innerHTML=`<div id="triangle" class="triangle"></div>`
+    }else{
+        symbol.parentNode.innerHTML=`<img id="pause" src="./assets/icons/pause.svg">`
+    }
+}
+
 const selectRow=(row, index)=>{
     rows = document.getElementsByTagName("tr");
-    
+    if(rows[index+1].classList.contains("selected")){
+        toggleArtistPlayPause(row.children[0].children[0]);
+        return;
+    }
     for(let i=0;i<rows.length;i++){
         rows[i].classList.remove("selected");
+        rows[i].children[0].innerHTML=`${i}`
     }
     row.classList.add("selected")
+    row.children[0].innerHTML=`<img id="pause" src="./assets/icons/pause.svg">`
     currentSong=topSongs[index];
     createPlayBar();
 }
+
 const mainContent = document.getElementById("main-content");
 const renderPage = (songs) =>{
     console.log("renderPage",songs)
@@ -174,8 +190,8 @@ const renderPage = (songs) =>{
                     <h4>Popular</h4>
                     <table class="table table-borderless">
                         <tr class="hidden">
-                            <th style="width: 10%"></th>
-                            <th style="width: 60%"></th>
+                            <th style="max-width: 5%"></th>
+                            <th style="max-width: 60%"></th>
                             <th style="width: 15%"></th>
                             <th style="width: 15%"></th>
                         </tr>

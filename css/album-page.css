@@ -87,6 +87,10 @@ tr p:hover{
     height:70px;
     filter: invert(57%) sepia(82%) saturate(379%) hue-rotate(84deg) brightness(90%) contrast(90%);
 }
+.selected{
+    background-color: #5c5c5c !important;
+}
+
   @media screen and (max-width: 1000px){
     .col-lg-9{
 

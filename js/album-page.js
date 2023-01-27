@@ -4,7 +4,7 @@ const params = new URLSearchParams(location.search)
 const id = params.get("id")
 console.log(id)
 
-
+let tr
 
 let allSongs=[]
 const options = {
@@ -14,6 +14,8 @@ const options = {
 		'X-RapidAPI-Host': 'deezerdevs-deezer.p.rapidapi.com'
 	}
 }
+
+
 toggleSearch = ()=>{}
 function timeConvert(duration){
   var hrs = ~~(duration / 3600);
@@ -56,16 +58,18 @@ const getAlbum= async (id)=>{
     let time=0
       
        let tbody=document.querySelector("tbody")
-       let tr
-       let music=[]
-       console.log(music)
+       
+      
        for(i=0;i<artist.tracks.data.length;i++){
        
         
          tr=document.createElement("tr")
-         
+
+   
          let track=artist.tracks.data[i]
          let duration=track.duration
+        allSongs.push(track.preview)
+        
          let mins=timeConvert(duration)
         //  tr.onclick=function play(){
         //   let audio=new Audio()
@@ -79,9 +83,29 @@ const getAlbum= async (id)=>{
         //     console.log(music[0])
         //   }
         //  }
-   
+        // let rows;
+        // const selectRow=(row, index)=>{
+        //     rows = document.getElementsByTagName("tr");
+            
+        //     for(let i=0;i<rows.length;i++){
+        //         rows[i].classList.remove("selected");
+        //     }
+        //     row.classList.add("selected")
+        //     currentSong=allSongs[index];
+        //     createPlayBar();
+        // }
+
+        tr.onclick = ()=>{
+      for(i=0;i<tr.length;i++){
+       tr[i].classList.remove("selected")
+      }
+      tr.classList.add("selected")
+      currentSong=allSongs[i]
+      createPlayBar()
+    }
 
         searchQuery=track.artist.id;
+     
         tr.innerHTML=`
         <th scope="row" class="play-list-text">${i+1}</th>
         <td class="white-text no-space-left">${track.title}
@@ -90,7 +114,9 @@ const getAlbum= async (id)=>{
         <td class="play-list-text">${mins}</td>
 
         `
-    
+
+          
+        
       
         console.log(track.preview.duration)
     
@@ -128,13 +154,13 @@ const getAlbum= async (id)=>{
   }
 }
 
- 
 
 
 
+
+console.log(allSongs)
 
 window.onload=getAlbum(id)
-
 
 
 

@@ -105,14 +105,7 @@ const getAlbum= async (id)=>{
         //     createPlayBar();
         // }
 
-        tr.onclick = (this)=>{
-      for(i=0;i<tr.length;i++){
-       tr[i].classList.remove("selected")
-      }
-      tr.classList.add("selected")
-      currentSong=allSongs[i]
-      createPlayBar()
-    }
+   
 
         searchQuery=track.artist.id;
      

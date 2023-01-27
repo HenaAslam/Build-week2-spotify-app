@@ -106,4 +106,5 @@ tr p:hover{
 
 .selected{
     background-color: #5c5c5c !important;
+    color: #39bf5c !important;
 }

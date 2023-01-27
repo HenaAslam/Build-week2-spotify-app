@@ -214,18 +214,18 @@ check={username: 'hena@xyz.com', profilename: 'Hena Aslam', img: 'https://i.pini
         
       </ul>
       <div class="dropdown d-flex align-items-center">
-    <button class="btn btn-secondary dropdown-toggle rounded-pill truncate" type="button" data-toggle="dropdown" aria-expanded="false">
-    <img src=${check.img}>
-    ${check.profilename}
-    </button>
-    <div class="dropdown-menu dropdown-menu-right">
-      <a class="dropdown-item" href="#">Account</a>
-      <a class="dropdown-item" href="#">Profile</a>
-      <a class="dropdown-item" href="#">Settings</a>
-      <a class="dropdown-item" href="#">Upgrade to Premium</a>
-      <a class="dropdown-item" href="#" id="logout">Log out</a>
+        <button class="btn btn-secondary dropdown-toggle rounded-pill truncate" type="button" data-toggle="dropdown" aria-expanded="false">
+            <img src=${check.img}>
+            ${check.profilename}
+        </button>
+        <div class="dropdown-menu dropdown-menu-right">
+            <a class="dropdown-item" href="#">Account</a>
+            <a class="dropdown-item" href="#">Profile</a>
+            <a class="dropdown-item" href="#">Settings</a>
+            <a class="dropdown-item" href="#">Upgrade to Premium</a>
+            <a class="dropdown-item" href="#" id="logout">Log out</a>
+        </div>
     </div>
-  </div>
     </div>
   </nav>`
   searchDiv = document.querySelector('#search-bar');

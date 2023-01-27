@@ -80,7 +80,7 @@ tr:hover{
     background-color: #2b2b2b;
 }
 tr{
-    font-family: Gotham-Light;
+    font-family: Gotham-Bold;
 }
 
 .grey-text{
@@ -131,6 +131,7 @@ tr{
 
 .selected{
     background-color: #5c5c5c !important;
+    color: #39bf5c;
 }
 
 .artist-pick-image{

@@ -95,7 +95,7 @@ const getAlbum= async (id)=>{
         //     createPlayBar();
         // }
 
-        tr.onclick = ()=>{
+        tr.onclick = (this)=>{
       for(i=0;i<tr.length;i++){
        tr[i].classList.remove("selected")
       }

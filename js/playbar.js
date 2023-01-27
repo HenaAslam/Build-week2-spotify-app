@@ -51,14 +51,15 @@ nextSong=()=>{
         currentSongIndex+=1;
         currentSong = album[currentSongIndex];
         queueOfSongs.push(currentSong);
-        console.log(currentSong)
-       
+   
+        let cover=document.getElementById("current-album-cover")
+      
         if(songIsPlaying==true){
-          
+       
       playSong()
       playOrPauseSong(`<img src="./assets/icons/play-circle-fill.svg>` )
 setVolume()
-     
+console.log(currentSong.album.cover_small)
 
         } 
     }

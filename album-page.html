@@ -17,7 +17,7 @@
         <aside class="play-list-text"></aside>
         <div id="main-content">
           <div id="user-info" class="mt-3 d-flex justify-content-between">
-                           
+
           </div>
           <div class="container-fluid">
           <div class="row" id="section1" >
@@ -73,7 +73,9 @@
               </tr>
             </thead>
             <tbody class="table-borderless">
-          
+           <tr>
+
+           </tr>
              
             </tbody>
           </table>
@@ -81,7 +83,13 @@
        </div>
       </div>
     </div>
-    <footer class="play-bar white-text" id="play-bar"></footer>
+    <footer class="play-bar white-text" id="play-bar">
+      <img src="./assets/icons/play-circle-fill.svg" class="play-bar-icons play-button" id="play" onclick="playOrPauseSong(this)">
+      <input class="volume-line" type="range" min="0" max="30" value="0" id="volume-line">
+      <input class="volume-line" type="range" min="0" max="100" value="50" id="slider">
+
+    </footer>
+
   </div>
 
 

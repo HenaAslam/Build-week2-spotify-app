@@ -4,7 +4,7 @@ const params = new URLSearchParams(location.search)
 const id = params.get("id")
 console.log(id)
 
-
+let tr
 
 let allSongs=[]
 const options = {
@@ -69,9 +69,8 @@ const getAlbum= async (id)=>{
     let artist= await res.json();
     console.log("artist->",artist);
        let tbody=document.querySelector("tbody")
-       let tr
-       let music=[]
-       console.log(music)
+       
+      
        for(i=0;i<artist.tracks.data.length;i++){
           allSongs.push(artist.tracks.data[i]);
         
@@ -79,6 +78,8 @@ const getAlbum= async (id)=>{
          tr.setAttribute("onclick",`selectRowAlbum(this,${i})`)
          let track=artist.tracks.data[i]
          let duration=track.duration
+        allSongs.push(track.preview)
+        
          let mins=timeConvert(duration)
         //  tr.onclick=function play(){
         //   let audio=new Audio()
@@ -92,9 +93,29 @@ const getAlbum= async (id)=>{
         //     console.log(music[0])
         //   }
         //  }
- 
+        // let rows;
+        // const selectRow=(row, index)=>{
+        //     rows = document.getElementsByTagName("tr");
+            
+        //     for(let i=0;i<rows.length;i++){
+        //         rows[i].classList.remove("selected");
+        //     }
+        //     row.classList.add("selected")
+        //     currentSong=allSongs[index];
+        //     createPlayBar();
+        // }
+
+        tr.onclick = (this)=>{
+      for(i=0;i<tr.length;i++){
+       tr[i].classList.remove("selected")
+      }
+      tr.classList.add("selected")
+      currentSong=allSongs[i]
+      createPlayBar()
+    }
 
         searchQuery=track.artist.id;
+     
         tr.innerHTML=`
         <th scope="row" class="play-list-text">${i+1}</th>
         <td class="white-text no-space-left">
@@ -149,7 +170,6 @@ const getAlbum= async (id)=>{
   likeBtn()
 }
 
- 
 
 function likeBtn(){
   let node=document.querySelector('svg:nth-of-type(1)')
@@ -159,8 +179,9 @@ function likeBtn(){
   })
 }
 
-window.onload=getAlbum(id)
+console.log(allSongs)
 
+window.onload=getAlbum(id)
 
 
 

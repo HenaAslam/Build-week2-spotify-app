@@ -55,11 +55,9 @@ nextSong=()=>{
         let cover=document.getElementById("current-album-cover")
       
         if(songIsPlaying==true){
-       
-      playSong()
-      playOrPauseSong(`<img src="./assets/icons/play-circle-fill.svg>` )
-setVolume()
-console.log(currentSong.album.cover_small)
+            playSong()
+            setVolume()
+            console.log(currentSong.album.cover_small)
 
         } 
     }
@@ -171,6 +169,8 @@ playOrPauseSong= (img)=>{
     }
 }
 const playSong=()=>{
+    //pauseSong();
+    console.log("playing");
     songIsPlaying=true
     audio.src=currentSong.preview
     
@@ -179,12 +179,12 @@ const playSong=()=>{
     
     isPaused = false
     
-if(audio.currentTime!==0){
-     audio.play()
+    if(audio.currentTime!==0){
+        audio.play()
 
-}else{
-    audio.play()
-}
+    }else{
+        audio.play()
+    }
   
 }
 const pauseSong=()=>{

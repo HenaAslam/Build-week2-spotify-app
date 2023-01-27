@@ -67,10 +67,7 @@ const addDiscography = ()=>{
                 <div class="card" style="position:relative" >
                     <a href='./album-page.html?id=${element.id}'>
                         <img src="${element.image}" class="card-img-top mt-2 mb-2 px-2" alt="...">
-                        
-                        <div class="play-btn d-none d-lg-block">
-                            <div class="triangle"></div>
-                        </div>
+                    
                     
                     <div class="card-body d-flex flex-column justify-content-center">
                         <h5 class="card-title text-white">${element.title}</h5>
@@ -118,9 +115,12 @@ let rows;
 const toggleArtistPlayPause=(symbol)=>{
     console.log("symbol",symbol);
     if(symbol.id==="pause"){
-        symbol.parentNode.innerHTML=`<div id="triangle" class="triangle"></div>`
+        symbol.parentNode.innerHTML=`<img id="play" src="./assets/icons/play-fill.svg">`
+        console.log("should be playing")
+        pauseSong();
     }else{
         symbol.parentNode.innerHTML=`<img id="pause" src="./assets/icons/pause.svg">`
+        playSong();
     }
 }
 
@@ -138,6 +138,11 @@ const selectRow=(row, index)=>{
     row.children[0].innerHTML=`<img id="pause" src="./assets/icons/pause.svg">`
     currentSong=topSongs[index];
     createPlayBar();
+    playSong();
+    album=[];
+    topSongs.forEach(song=>{
+        album.push(song);
+    })
 }
 
 const mainContent = document.getElementById("main-content");
@@ -190,7 +195,7 @@ const renderPage = (songs) =>{
                     <h4>Popular</h4>
                     <table class="table table-borderless">
                         <tr class="hidden">
-                            <th style="max-width: 5%"></th>
+                            <th style="max-width: 10%"></th>
                             <th style="max-width: 60%"></th>
                             <th style="width: 15%"></th>
                             <th style="width: 15%"></th>

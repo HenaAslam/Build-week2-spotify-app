@@ -13,7 +13,7 @@ const getArtistData = async()=>{
         let res = await fetch(artistURL+artistId)
         if(res.ok){
             res = await res.json();
-            console.log(res);
+            console.log("getArtistData", res);
             artistName=res.name;
             artistNamePlus = artistName.replaceAll(' ', '+')
             searchQuery=artistNamePlus.toLowerCase();
@@ -30,7 +30,7 @@ const getArtist = async()=>{
         })
         if(res.ok){
             res = await res.json();
-            console.log(res.data);
+            console.log("getArtist",res.data);
             getTopAlbums(res.data)
             renderPage(res.data);
         }
@@ -44,11 +44,17 @@ const topFiveSongs= async()=>{
     try {
         let res = await fetch(`https://striveschool-api.herokuapp.com/api/deezer/artist/${artistId}/top?limit=50`)
         if(res.ok){
+            if(res===`{"data":[],"total":0}`){
+                console.log("weewoo")
+            }
             res = await res.json();
+            
+            console.log("top5songs",res);
             populateTable(res.data);
         }
     }catch(error){
         console.log(error);
+        
     }
 }
 const addDiscography = ()=>{
@@ -120,6 +126,7 @@ const selectRow=(row, index)=>{
 }
 const mainContent = document.getElementById("main-content");
 const renderPage = (songs) =>{
+    console.log("renderPage",songs)
     mainContent.innerHTML =`
         <div class="top-cover">
             <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
@@ -141,14 +148,24 @@ const renderPage = (songs) =>{
         </div>
         <div class="container-fluid">
             <div class="row artist-top-row">
-                <div class="col-1">
+                <div class="top-row-icons">
                     <img class="artist-play" src="./assets/icons/play-circle-fill.svg">
                 </div>
-                <div class="col-1">
-                <button type="button" class="btn">Follow</button>
+                <div class="top-row-icons">
+                    <button type="button" class="btn not-play">Follow</button>
                 </div>
-                <div class="col-1">
-                    <p>...</p>
+                <div class="top-row-icons">
+                <div class="dropdown d-flex align-items-center">
+                    
+                        <img class="three-dots not-play dropdown-toggle" src="./assets/icons/three-dots.svg" data-toggle="dropdown">
+                    
+                    <div class="dropdown-menu dropdown-menu-right">
+                        <a class="dropdown-item" href="#">Follow</a>
+                        <a class="dropdown-item" href="#">Go to artist radio</a>
+                        <a class="dropdown-item" href="#">Report</a>
+                        <a class="dropdown-item" href="#">Share</a>
+                    </div>
+                </div>
                 </div>
             </div>
             <br>

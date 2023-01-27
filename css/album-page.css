@@ -108,3 +108,14 @@ tr p:hover{
     background-color: #5c5c5c !important;
     color: #39bf5c !important;
 }
+  .artist-play{
+    height:70px;
+    filter: invert(57%) sepia(82%) saturate(379%) hue-rotate(84deg) brightness(90%) contrast(90%);
+}
+.table-image{
+    height:45px;
+    margin-right:18px;
+}
+.light-text{
+    font-family: "Gotham-Light";
+}

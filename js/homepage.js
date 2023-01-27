@@ -1,6 +1,5 @@
 let albumArray=[]
 var Username = sessionStorage.getItem('Username');
-console.log(Username)
 
 
 let profile=[{username:"hena@xyz.com", profilename:"Hena Aslam" , img:"https://i.pinimg.com/236x/ea/67/8c/ea678cff66b12a1681bfffd449851475.jpg"},
@@ -47,7 +46,7 @@ const recentlyPlayed=(array)=>{
         <a href='./album-page.html?id=${element.album.id}'>
            <img src="${element.album.cover_medium}" class="card-img-top mt-2 mb-2 px-2" alt="...">
           
-           <div class="play-btn d-none d-lg-block">
+           <div class="play-btn">
               <div class="triangle"></div>
           </div>
          
@@ -76,7 +75,7 @@ const showstoTry=(array)=>{
         <a href='./album-page.html?id=${element.album.id}'>
            <img src="${element.album.cover_medium}" class="card-img-top mt-2 mb-2 px-2" alt="...">
           
-           <div class="play-btn d-none d-lg-block">
+           <div class="play-btn">
               <div class="triangle"></div>
           </div>
          
@@ -114,53 +113,51 @@ const fetchSongs=(search)=>{
 	.catch(err => console.error(err));
 }
 
-window.onload=()=>{
-    fetchSongs("rock")
-    userInfo()
-    logout()
-}
+
+
+
 let searchDiv;
 let searchInput;
-const userInfo=()=>{
-    let node=document.getElementById("user-info")
-    let check;
-     if(Username===null){
-        Username="Diego 'Ziba' Bababababba"
-     }
-     else{
-         check=profile.find((user)=>(user.username===Username))
+// const userInfo=()=>{
+//     let node=document.getElementById("user-info")
+//     let check;
+//      if(Username===null){
+//         Username="Diego 'Ziba' Bababababba"
+//      }
+//      else{
+//          check=profile.find((user)=>(user.username===Username))
         
-     }
-    node.innerHTML+=`
-        <div class="mt-2 ml-3 mb-3 row search-row d-flex align-items-center">
-            <i class="bi bi-chevron-left mr-2" onclick="backHistory()" ></i>
-            <i class="bi bi-chevron-right ml-2" onclick="forwardHistory()"></i>
-            <div class="input-group mb-3 search-bar hidden" id="search-bar">
-                <input type="text" class="form-control search-input" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
-            </div>
-    </div>
+//      }
+//     node.innerHTML+=`
+//         <div class="mt-2 ml-3 mb-3 row search-row d-flex align-items-center">
+//             <i class="bi bi-chevron-left mr-2" onclick="backHistory()" ></i>
+//             <i class="bi bi-chevron-right ml-2" onclick="forwardHistory()"></i>
+//             <div class="input-group mb-3 search-bar hidden" id="search-bar">
+//                 <input type="text" class="form-control search-input" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+//             </div>
+//     </div>
 
-    <div class="dropdown d-flex align-items-center">
-    <button class="btn btn-secondary dropdown-toggle rounded-pill truncate" type="button" data-toggle="dropdown" aria-expanded="false">
-    <img src=${check.img}>
-    ${check.profilename}
-    </button>
-    <div class="dropdown-menu dropdown-menu-right">
-      <a class="dropdown-item" href="#">Account</a>
-      <a class="dropdown-item" href="#">Profile</a>
-      <a class="dropdown-item" href="#">Settings</a>
-      <a class="dropdown-item" href="#">Upgrade to Premium</a>
-      <a class="dropdown-item" href="#" id="logout">Log out</a>
-    </div>
-  </div>
+//     <div class="dropdown d-flex align-items-center">
+//     <button class="btn btn-secondary dropdown-toggle rounded-pill truncate" type="button" data-toggle="dropdown" aria-expanded="false">
+//     <img src=${check.img}>
+//     ${check.profilename}
+//     </button>
+//     <div class="dropdown-menu dropdown-menu-right">
+//       <a class="dropdown-item" href="#">Account</a>
+//       <a class="dropdown-item" href="#">Profile</a>
+//       <a class="dropdown-item" href="#">Settings</a>
+//       <a class="dropdown-item" href="#">Upgrade to Premium</a>
+//       <a class="dropdown-item" href="#" id="logout">Log out</a>
+//     </div>
+//   </div>
 
 
 
    
-    `
-    searchDiv = document.querySelector('#search-bar');
-    searchInput =  document.querySelector(".search-input");
-}
+//     `
+//     searchDiv = document.querySelector('#search-bar');
+//     searchInput =  document.querySelector(".search-input");
+// }
 
 const toggleSearch=()=>{
     searchDiv.classList.remove("hidden");
@@ -175,18 +172,6 @@ const toggleSearch=()=>{
 }
 
 
-//dont need this anymore
-// const albumPage=(array)=>{
-//     let cards=document.querySelectorAll(".card")
-   
-//     cards.forEach(card => {
-//         card.addEventListener("click",(event)=>{
-//             let val=event.target
-          
-//             let src=val.src
-
-// ${Username}==="null" ? "Diego 'Ziba' Bababababba": ${Username}
-
 
 const logout=()=>{
     let node=document.querySelector("#logout")
@@ -197,25 +182,68 @@ const logout=()=>{
 
 
 
-// const onScroll=()=>{
-//     const navbar = document.querySelector("#user-info")
-    
-//     if (window.scrollY>0) {
-//         console.log("hello")
-//         navbar.classList.add('user-info');
-//       } 
-   
-// }
-
-// window.onscroll=onScroll()
-
-
 function backHistory(){
     window.history.back()
 }
 
 function forwardHistory(){
-    
-    console.log("hell")
     window.history.forward();
 }
+
+const navBar=()=>{
+    let node=document.getElementById("nav")
+  let check;
+  check=profile.find((user)=>(user.username===Username))
+  if (check===null || check===undefined){
+check={username: 'hena@xyz.com', profilename: 'Hena Aslam', img: 'https://i.pinimg.com/236x/ea/67/8c/ea678cff66b12a1681bfffd449851475.jpg'}
+  }
+    node.innerHTML+=`<nav class="navbar navbar-expand navbar-light">
+   
+    <div class="arrows search-row">
+    <i class="bi bi-chevron-left mr-2" onclick="backHistory()" ></i>
+    <i class="bi bi-chevron-right ml-2" onclick="forwardHistory()"></i>
+    <div class="input-group mb-3 search-bar hidden" id="search-bar">
+                <input type="text" class="form-control search-input" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+    </div>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        
+       
+        
+      </ul>
+      <div class="dropdown d-flex align-items-center">
+    <button class="btn btn-secondary dropdown-toggle rounded-pill truncate" type="button" data-toggle="dropdown" aria-expanded="false">
+    <img src=${check.img}>
+    ${check.profilename}
+    </button>
+    <div class="dropdown-menu dropdown-menu-right">
+      <a class="dropdown-item" href="#">Account</a>
+      <a class="dropdown-item" href="#">Profile</a>
+      <a class="dropdown-item" href="#">Settings</a>
+      <a class="dropdown-item" href="#">Upgrade to Premium</a>
+      <a class="dropdown-item" href="#" id="logout">Log out</a>
+    </div>
+  </div>
+    </div>
+  </nav>`
+  searchDiv = document.querySelector('#search-bar');
+    searchInput =  document.querySelector(".search-input");
+
+}
+window.onload=()=>{
+    fetchSongs("rock")
+    // userInfo()
+    navBar()
+     logout()
+  
+}
+
+// function navFixed(){
+//     const navbar = document.getElementById('nav')
+//     if (window.scrollY > 0) {
+//         navbar.classList.add('nav');
+//     }
+// }
+// window.onscroll = navFixed()

@@ -19,13 +19,17 @@ const selectRowAlbum=(row, index)=>{
   
   for(let i=0;i<rows.length;i++){
       rows[i].classList.remove("selected");
-      rows[i].children[1].classList.add("white-text");
+      try{rows[i].children[1].classList.add("white-text");}
+      catch(error){
+        console.log(error);
+      }
   }
   row.classList.add("selected")
   row.children[1].classList.remove("white-text");
   currentSong=allSongs[index];
   console.log("current song",currentSong)
   createPlayBar();
+  playSong();
 }
 toggleSearch = ()=>{}
 function timeConvert(duration){

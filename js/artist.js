@@ -113,7 +113,6 @@ const getTopAlbums=(songs)=>{
 let rows;
 
 const toggleArtistPlayPause=(symbol)=>{
-    console.log("symbol",symbol);
     if(symbol.id==="pause"){
         symbol.parentNode.innerHTML=`<img id="play" src="./assets/icons/play-fill.svg">`
         console.log("should be playing")
@@ -140,6 +139,7 @@ const selectRow=(row, index)=>{
     createPlayBar();
     playSong();
     album=[];
+    currentSongIndex=index;
     topSongs.forEach(song=>{
         album.push(song);
     })

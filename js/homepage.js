@@ -203,7 +203,7 @@ check={username: 'hena@xyz.com', profilename: 'Hena Aslam', img: 'https://i.pini
     <i class="bi bi-chevron-left mr-2" onclick="backHistory()" ></i>
     <i class="bi bi-chevron-right ml-2" onclick="forwardHistory()"></i>
     <div class="input-group mb-3 search-bar hidden" id="search-bar">
-                <input type="text" class="form-control search-input" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+                <input type="text" class="form-control search-input" placeholder="What do you want to listen to?" aria-label="Username" aria-describedby="basic-addon1">
             </div>
     </div>
   

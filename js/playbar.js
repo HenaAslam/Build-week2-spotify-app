@@ -168,8 +168,8 @@ playOrPauseSong= (img)=>{
         
     }
 }
+let playbuttonhere=document.getElementById("play");
 const playSong=()=>{
-    //pauseSong();
     console.log("playing");
     songIsPlaying=true
     audio.src=currentSong.preview

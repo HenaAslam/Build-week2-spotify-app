@@ -220,12 +220,7 @@ border-radius: 50%;
 #user-info .dropdown-item:last-of-type{
   border-top: 1px solid  rgb(81, 75, 75);
 }
-/* .user-info{
-  background: rgb(76,76,74);
-    background: linear-gradient(180deg, rgba(76,76,74,1) 0%, rgb(142, 118, 118) 51%);
-    position:fixed;
-    top:0;
-} */
+
 .card .card-text{
   
   font-family: "Gotham-Light";

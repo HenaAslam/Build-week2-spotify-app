@@ -118,46 +118,7 @@ const fetchSongs=(search)=>{
 
 let searchDiv;
 let searchInput;
-// const userInfo=()=>{
-//     let node=document.getElementById("user-info")
-//     let check;
-//      if(Username===null){
-//         Username="Diego 'Ziba' Bababababba"
-//      }
-//      else{
-//          check=profile.find((user)=>(user.username===Username))
-        
-//      }
-//     node.innerHTML+=`
-//         <div class="mt-2 ml-3 mb-3 row search-row d-flex align-items-center">
-//             <i class="bi bi-chevron-left mr-2" onclick="backHistory()" ></i>
-//             <i class="bi bi-chevron-right ml-2" onclick="forwardHistory()"></i>
-//             <div class="input-group mb-3 search-bar hidden" id="search-bar">
-//                 <input type="text" class="form-control search-input" placeholder="What do you want to listen to?" aria-label="Username" aria-describedby="basic-addon1">
-//             </div>
-//     </div>
 
-//     <div class="dropdown d-flex align-items-center">
-//     <button class="btn btn-secondary dropdown-toggle rounded-pill truncate" type="button" data-toggle="dropdown" aria-expanded="false">
-//     <img src=${check.img}>
-//     ${check.profilename}
-//     </button>
-//     <div class="dropdown-menu dropdown-menu-right">
-//       <a class="dropdown-item" href="#">Account</a>
-//       <a class="dropdown-item" href="#">Profile</a>
-//       <a class="dropdown-item" href="#">Settings</a>
-//       <a class="dropdown-item" href="#">Upgrade to Premium</a>
-//       <a class="dropdown-item" href="#" id="logout">Log out</a>
-//     </div>
-//   </div>
-
-
-
-   
-//     `
-//     searchDiv = document.querySelector('#search-bar');
-//     searchInput =  document.querySelector(".search-input");
-// }
 
 const toggleSearch=()=>{
     searchDiv.classList.remove("hidden");
